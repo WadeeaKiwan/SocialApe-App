@@ -1,37 +1,42 @@
 import * as functions from "firebase-functions";
 const admin = require("firebase-admin");
+const express = require("express");
 
 admin.initializeApp();
 const db = admin.firestore();
 
-// // Start writing Firebase Functions
-// // https://firebase.google.com/docs/functions/typescript
-//
-export const helloWorld = functions.https.onRequest((req, res) => {
-  res.send("Hello from Firebase!");
-});
+const app = express();
 
-export const getScreams = functions.https.onRequest((req, res) => {
+// Get All Screams
+app.get("/screams", (req: any, res: any) => {
   db.collection("screams")
+    .orderBy("createdAt", "desc")
     .get()
     .then((data: any[]) => {
       let screams: any[] = [];
-      data.forEach((doc: { data: () => any }) => {
-        screams.push(doc.data());
+      data.forEach((doc: any) => {
+        screams.push({
+          screamId: doc.id,
+          /**
+           * body: doc.data().body,
+           * userHandle: doc.data().userHandle,
+           * createdAt: doc.data().createdAt
+           * OR:
+           */
+          ...doc.data()
+        });
       });
       return res.json(screams);
     })
     .catch((err: any) => console.error(err));
 });
 
-export const createScream = functions.https.onRequest((req, res) => {
-  // if (req.method !== "POST") {
-  //   return res.status(400).json({ error: `Method ${req.method} not allowed` });
-  // }
+// Create a new scream
+app.post("/scream", (req: any, res: any) => {
   const newScream = {
     body: req.body.body,
     userHandle: req.body.userHandle,
-    createdAt: admin.firestore.Timestamp.fromDate(new Date())
+    createdAt: new Date().toISOString()
   };
 
   db.collection("screams")
@@ -44,3 +49,6 @@ export const createScream = functions.https.onRequest((req, res) => {
       console.error(err);
     });
 });
+
+// Serve all routes with '/api' 'https://baseUrl.com/api'
+exports.api = functions.region("europe-west1").https.onRequest(app);
