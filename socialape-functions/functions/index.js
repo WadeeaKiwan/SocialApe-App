@@ -1,34 +1,42 @@
-import * as functions from "firebase-functions";
+const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 const firebase = require("firebase");
-import firebaseConfig from "../config/firebaseConfig";
+// Fetch the firebase configuration from the file
+const { firebaseConfig } = require("./config/firebaseConfig");
+// Fetch the service account key JSON file contents
+const serviceAccount = require("./config/serviceAccountKey.json");
+const cors = require("cors");
 
 const app = require("express")();
+// Access to selected resources from a different origin
+app.use(cors());
 
-admin.initializeApp();
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://socialape-ad195.firebaseio.com"
+});
 const db = admin.firestore();
 
 firebase.initializeApp(firebaseConfig);
 
 // Get All Screams
-app.get("/screams", async (req: any, res: any) => {
+app.get("/screams", async (req, res) => {
   try {
-    const screams: any[] = [];
+    const screams = [];
     const data = await db
       .collection("screams")
       .orderBy("createdAt", "desc")
       .get();
 
-    data.forEach((doc: any) => {
+    data.forEach(doc => {
       screams.push({
         screamId: doc.id,
-        /**
-         * body: doc.data().body,
-         * userHandle: doc.data().userHandle,
-         * createdAt: doc.data().createdAt
-         * OR:
+        body: doc.data().body,
+        userHandle: doc.data().userHandle,
+        createdAt: doc.data().createdAt
+        /* OR:
          */
-        ...doc.data()
+        // ...doc.data()
       });
     });
     return res.status(200).json(screams);
@@ -38,12 +46,45 @@ app.get("/screams", async (req: any, res: any) => {
   }
 });
 
+// Authentication Middleware
+const FBAuth = async (req, res, next) => {
+  let idToken;
+  if (req.headers.authorization && req.headers.authorization.startsWith("Bearer ")) {
+    idToken = req.headers.authorization.split("Bearer ")[1];
+  } else {
+    console.error("No token found");
+    return res.status(403).json({ error: "Unauthorized" });
+  }
+
+  try {
+    const decodedToken = await admin.auth().verifyIdToken(idToken);
+    req.user = decodedToken;
+    console.log(decodedToken);
+    const data = await db
+      .collection("users")
+      .where("userId", "==", req.user.uid)
+      .limit(1)
+      .get();
+
+    req.user.handle = data.docs[0].data().handle;
+
+    return next();
+  } catch (err) {
+    console.error("Error while verifying token ", err);
+    return res.status(403).json(err);
+  }
+};
+
 // Create a new scream
-app.post("/scream", async (req: any, res: any) => {
+app.post("/scream", FBAuth, async (req, res) => {
+  if (req.body.body.trim() === "") {
+    return res.status(400).json({ body: "Body must not be empty" });
+  }
+
   try {
     const newScream = {
       body: req.body.body,
-      userHandle: req.body.userHandle,
+      userHandle: req.user.handle,
       createdAt: new Date().toISOString()
     };
 
@@ -55,27 +96,23 @@ app.post("/scream", async (req: any, res: any) => {
   }
 });
 
-const isEmpty = (string: string): boolean => {
+const isEmpty = string => {
   if (string.trim() === "") return true;
   else return false;
 };
 
-const isEmail = (email: string): boolean => {
+const isEmail = email => {
+  // eslint-disable-next-line
   const regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   if (email.match(regEx)) return true;
   else return false;
 };
 
 // Signup route
-app.post("/signup", async (req: any, res: any) => {
-  let token: string, userId: string;
+app.post("/signup", async (req, res) => {
+  let token, userId;
 
-  const newUser: {
-    email: string;
-    password: string;
-    confirmPassword: string;
-    handle: string;
-  } = {
+  const newUser = {
     email: req.body.email,
     password: req.body.password,
     confirmPassword: req.body.confirmPassword,
@@ -83,7 +120,7 @@ app.post("/signup", async (req: any, res: any) => {
   };
 
   // Validate data
-  const errors: any = {};
+  const errors = {};
 
   if (isEmpty(newUser.email)) {
     errors.email = "Must not be empty!";
@@ -101,7 +138,10 @@ app.post("/signup", async (req: any, res: any) => {
   }
 
   try {
-    const doc = await db.doc(`/users/${newUser.handle}`).get();
+    const doc = await db
+      .collection("users")
+      .doc(newUser.handle)
+      .get();
 
     if (doc.exists) {
       return res.status(400).json({ handle: "This handle is already taken" });
@@ -134,18 +174,15 @@ app.post("/signup", async (req: any, res: any) => {
 });
 
 // Login route
-app.post("/login", async (req: any, res: any) => {
-  let token: string;
+app.post("/login", async (req, res) => {
+  let token;
 
-  const user: {
-    email: string;
-    password: string;
-  } = {
+  const user = {
     email: req.body.email,
     password: req.body.password
   };
 
-  const errors: any = {};
+  const errors = {};
 
   if (isEmpty(user.email)) errors.email = "Must not be empty";
   if (isEmpty(user.password)) errors.password = "Must not be empty";
