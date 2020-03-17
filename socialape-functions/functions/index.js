@@ -4,7 +4,7 @@ const cors = require("cors");
 const FBAuth = require("./util/fbAuth");
 
 const { getAllScreams, postOneScream } = require("./handlers/screams");
-const { signup, login } = require("./handlers/users");
+const { signup, login, uploadImage } = require("./handlers/users");
 
 const app = require("express")();
 // Access to selected resources from a different origin
@@ -17,6 +17,7 @@ app.post("/scream", FBAuth, postOneScream);
 // Users routes
 app.post("/signup", signup);
 app.post("/login", login);
+app.post("/user/image", FBAuth, uploadImage);
 
 // Serve all routes with '/api' 'https://baseUrl.com/api'
 exports.api = functions.region("europe-west1").https.onRequest(app);

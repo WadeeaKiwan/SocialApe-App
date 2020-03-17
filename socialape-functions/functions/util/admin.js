@@ -1,10 +1,13 @@
 const admin = require("firebase-admin");
 // Fetch the service account key JSON file contents
 const serviceAccount = require("../config/serviceAccountKey.json");
+// Fetch the firebase configuration from the file
+const firebaseConfig = require("../config/firebaseConfig");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://socialape-ad195.firebaseio.com"
+  databaseURL: firebaseConfig.databaseURL,
+  storageBucket: firebaseConfig.storageBucket
 });
 const db = admin.firestore();
 
