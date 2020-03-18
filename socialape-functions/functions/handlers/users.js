@@ -4,9 +4,9 @@ const firebase = require("firebase");
 const firebaseConfig = require("../config/firebaseConfig");
 firebase.initializeApp(firebaseConfig);
 
-const { validateSignupData, validateLoginData } = require("../util/validators");
+const { validateSignupData, validateLoginData, reduceUserDetails } = require("../util/validators");
 
-// Signup route
+// Sign user up
 exports.signup = async (req, res) => {
   let token, userId;
 
@@ -62,7 +62,7 @@ exports.signup = async (req, res) => {
   }
 };
 
-// Login route
+// Log user in
 exports.login = async (req, res) => {
   let token;
 
@@ -92,7 +92,47 @@ exports.login = async (req, res) => {
   }
 };
 
-// Upload user's image
+// Add user details
+exports.addUserDetails = async (req, res) => {
+  let userDetails = reduceUserDetails(req.body);
+
+  try {
+    await db.doc(`/users/${req.user.handle}`).update(userDetails);
+    return res.status(200).json({ message: "Details added successfully" });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: err.code });
+  }
+};
+
+// Get own user details - Firebase will still get the document of a collection by reference even though it's not existed yet
+exports.getAuthenticatedUser = async (req, res) => {
+  let userData = {};
+
+  try {
+    const doc = await db.doc(`/users/${req.user.handle}`).get();
+
+    if (doc.exists) {
+      userData.credentials = doc.data();
+      const data = await db
+        .collection("likes")
+        .where("userHandle", "==", req.user.handle)
+        .get();
+
+      userData.likes = [];
+      data.forEach(doc => {
+        userData.likes.push(doc.data());
+      });
+
+      return res.status(200).json(userData);
+    }
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: err.code });
+  }
+};
+
+// Upload user's profile image
 exports.uploadImage = (req, res) => {
   const BusBoy = require("busboy");
   const path = require("path");
