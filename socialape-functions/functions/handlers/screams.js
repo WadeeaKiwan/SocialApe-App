@@ -14,7 +14,10 @@ exports.getAllScreams = async (req, res) => {
         screamId: scream.id,
         body: scream.data().body,
         userHandle: scream.data().userHandle,
-        createdAt: scream.data().createdAt
+        createdAt: scream.data().createdAt,
+        likeCount: scream.data().likeCount,
+        commentCount: scream.data().commentCount,
+        userImage: scream.data().userImage
         /* OR:
          */
         // ...doc.data()
@@ -37,11 +40,17 @@ exports.postOneScream = async (req, res) => {
     const newScream = {
       body: req.body.body,
       userHandle: req.user.handle,
-      createdAt: new Date().toISOString()
+      userImage: req.user.imageUrl,
+      createdAt: new Date().toISOString(),
+      likeCount: 0,
+      commentCount: 0
     };
 
     const scream = await db.collection("screams").add(newScream);
-    return res.json({ message: `document ${scream.id} created successfully` });
+    const resScream = newScream;
+    resScream.screamId = scream.id;
+
+    return res.status(200).json(resScream);
   } catch (err) {
     console.error(err);
     return res.status(500).json({ error: "Something went wrong" });
@@ -101,12 +110,89 @@ exports.commentOnScream = async (req, res) => {
       userImage: req.user.imageUrl
     };
 
+    await scream.ref.update({ commentCount: scream.data().commentCount + 1 });
+
     await db.collection("comments").add(newComment);
 
     return res.status(200).json(newComment);
   } catch (err) {
     console.error(err);
     return res.status(500).json({ error: "Something went wrong" });
+  }
+};
+
+// Like a scream
+exports.likeScream = async (req, res) => {
+  try {
+    const scream = await db.doc(`/screams/${req.params.screamId}`).get();
+
+    if (!scream.exists) {
+      return res.status(404).json({ error: "Scream not found" });
+    }
+
+    const likeDocument = await db
+      .collection("likes")
+      .where("userHandle", "==", req.user.handle)
+      .where("screamId", "==", req.params.screamId)
+      .limit(1);
+
+    let screamData;
+
+    const liked = await likeDocument.get();
+    if (liked.empty) {
+      await db.collection("likes").add({
+        screamId: req.params.screamId,
+        userHandle: req.user.handle,
+        createdAt: new Date().toISOString()
+      });
+
+      screamData = scream.data();
+      screamData.screamId = scream.id;
+      screamData.likeCount++;
+      await scream.ref.update({ likeCount: screamData.likeCount });
+
+      return res.status(201).json(screamData);
+    } else {
+      return res.status(400).json({ error: "Scream already liked" });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: err.code });
+  }
+};
+
+// Unlike a scream
+exports.unlikeScream = async (req, res) => {
+  try {
+    const scream = await db.doc(`/screams/${req.params.screamId}`).get();
+
+    if (!scream.exists) {
+      return res.status(404).json({ error: "Scream not found" });
+    }
+
+    const likeDocument = await db
+      .collection("likes")
+      .where("userHandle", "==", req.user.handle)
+      .where("screamId", "==", req.params.screamId)
+      .limit(1);
+
+    let screamData;
+
+    const liked = await likeDocument.get();
+    if (liked.empty) {
+      return res.status(400).json({ error: "Scream not liked" });
+    } else {
+      await db.doc(`/likes/${liked.docs[0].id}`).delete();
+
+      screamData = scream.data();
+      screamData.likeCount--;
+      await scream.ref.update({ likeCount: screamData.likeCount });
+
+      return res.status(201).json(screamData);
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: err.code });
   }
 };
 
@@ -119,7 +205,11 @@ exports.deleteScream = async (req, res) => {
       return res.status(404).json({ error: "Scream not found" });
     }
 
-    await db.doc(`/screams/${req.params.screamId}`).delete();
+    if (scream.data().userHandle !== req.user.handle) {
+      return res.status(403).json({ error: "Unauthorized" });
+    }
+
+    await scream.ref.delete();
 
     res.status(200).json({ message: `Scream deleted successfully` });
   } catch (err) {
