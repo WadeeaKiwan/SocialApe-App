@@ -1,0 +1,789 @@
+[debug] [2020-03-22T03:05:05.128Z] ----------------------------------------------------------------------
+[debug] [2020-03-22T03:05:05.130Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\wadee\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-03-22T03:05:05.130Z] CLI Version:   7.15.1
+[debug] [2020-03-22T03:05:05.130Z] Platform:      win32
+[debug] [2020-03-22T03:05:05.130Z] Node Version:  v12.13.1
+[debug] [2020-03-22T03:05:05.133Z] Time:          Sun Mar 22 2020 04:05:05 GMT+0100 (Central European Standard Time)
+[debug] [2020-03-22T03:05:05.133Z] ----------------------------------------------------------------------
+[debug] [2020-03-22T03:05:05.133Z] 
+[debug] [2020-03-22T03:05:05.145Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-03-22T03:05:05.146Z] > authorizing via signed-in user
+[debug] [2020-03-22T03:05:05.146Z] [iam] checking project socialape-ad195 for permissions ["firebase.projects.get"]
+[debug] [2020-03-22T03:05:05.148Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/socialape-ad195:testIamPermissions  
+
+[debug] [2020-03-22T03:05:05.888Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-22T03:05:05.890Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/socialape-ad195  
+ 
+[debug] [2020-03-22T03:05:06.119Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'E:\My Projects\SocialApe-App\socialape-functions'...
+[info] 
+[warn] !  Your requested "node" version "8" doesn't match your global version "12"
+[info] +  functions: functions emulator started at http://localhost:5000
+[info] i  functions: Watching "E:\My Projects\SocialApe-App\socialape-functions\functions" for Cloud Functions...
+[debug] [2020-03-22T03:05:08.177Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-22T03:05:08.177Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-03-22T03:05:08.177Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-22T03:05:08.177Z] [worker-~diagnostic~-37546c9f-62c0-497b-9255-e7c5f3b133e0]: Assigning socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\3780
+[debug] [2020-03-22T03:05:08.177Z] [worker-~diagnostic~-37546c9f-62c0-497b-9255-e7c5f3b133e0]: BUSY
+[debug] [2020-03-22T03:05:08.580Z] [runtime-status] [3780] Functions runtime initialized. {"cwd":"E:\\My Projects\\SocialApe-App\\socialape-functions\\functions","node_version":"12.13.1"}
+[debug] [2020-03-22T03:05:08.581Z] [runtime-status] [3780] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-22T03:05:08.584Z] [runtime-status] [3780] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"E:\\My Projects\\SocialApe-App\\socialape-functions\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2020-03-22T03:05:08.586Z] [runtime-status] [3780] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"E:\\My Projects\\SocialApe-App\\socialape-functions\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-03-22T03:05:08.587Z] [runtime-status] [3780] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"E:\\My Projects\\SocialApe-App\\socialape-functions\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[info] +  functions[api]: http function initialized (http://localhost:5000/socialape-ad195/europe-west1/api).
+[info] i  functions[createNotificationOnLike]: function ignored because the firestore emulator does not exist or is not running.
+[info] i  functions[createNotificationOnUnlike]: function ignored because the firestore emulator does not exist or is not running.
+[info] i  functions[createNotificationOnComment]: function ignored because the firestore emulator does not exist or is not running.
+[debug] [2020-03-22T03:05:10.072Z] [worker-~diagnostic~-37546c9f-62c0-497b-9255-e7c5f3b133e0]: IDLE
+[debug] [2020-03-22T03:06:01.779Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-22T03:06:01.779Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-22T03:06:01.780Z] Accepted request GET /socialape-ad195/europe-west1/api/scream/ezTCuAjWTCkR9T6lS07U/like --> api
+[debug] [2020-03-22T03:06:01.798Z] [worker-pool] addWorker(api)
+[debug] [2020-03-22T03:06:01.798Z] [worker-pool] Adding worker with key api, total=1
+[debug] [2020-03-22T03:06:01.798Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-22T03:06:01.798Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: Assigning socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-22T03:06:01.798Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: BUSY
+[debug] [2020-03-22T03:06:02.212Z] [runtime-status] [26480] Functions runtime initialized. {"cwd":"E:\\My Projects\\SocialApe-App\\socialape-functions\\functions","node_version":"12.13.1"}
+[debug] [2020-03-22T03:06:02.214Z] [runtime-status] [26480] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-22T03:06:02.217Z] [runtime-status] [26480] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"E:\\My Projects\\SocialApe-App\\socialape-functions\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2020-03-22T03:06:02.218Z] [runtime-status] [26480] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"E:\\My Projects\\SocialApe-App\\socialape-functions\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-03-22T03:06:02.219Z] [runtime-status] [26480] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"E:\\My Projects\\SocialApe-App\\socialape-functions\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-03-22T03:06:04.202Z] [runtime-status] [26480] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-22T03:06:04.204Z] [runtime-status] [26480] triggerDefinition {"regions":["europe-west1"],"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-22T03:06:04.204Z] [runtime-status] [26480] Running api in mode HTTPS
+[debug] [2020-03-22T03:06:04.212Z] [runtime-status] [26480] Attempting to listen to socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-22T03:06:04.218Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-22T03:06:04.225Z] [runtime-status] [26480] Ephemeral server handling GET request
+[debug] [2020-03-22T03:06:04.355Z] [runtime-status] [26480] Ephemeral server survived.
+[info] >  Error while verifying token  FirebaseAuthError: Firebase ID token has expired. Get a fresh ID token from your client app and try again (auth/id-token-expired). See https://firebase.google.com/docs/auth/admin/verify-id-tokens for details on how to retrieve an ID token.
+[info] >      at FirebaseAuthError.FirebaseError [as constructor] (E:\My Projects\SocialApe-App\socialape-functions\functions\node_modules\firebase-admin\lib\utils\error.js:42:28)
+[info] >      at FirebaseAuthError.PrefixedFirebaseError [as constructor] (E:\My Projects\SocialApe-App\socialape-functions\functions\node_modules\firebase-admin\lib\utils\error.js:88:28)
+[info] >      at new FirebaseAuthError (E:\My Projects\SocialApe-App\socialape-functions\functions\node_modules\firebase-admin\lib\utils\error.js:147:16)
+[info] >      at E:\My Projects\SocialApe-App\socialape-functions\functions\node_modules\firebase-admin\lib\auth\token-verifier.js:199:39
+[info] >      at Object.module.exports [as verify] (E:\My Projects\SocialApe-App\socialape-functions\functions\node_modules\jsonwebtoken\verify.js:126:14)
+[info] >      at E:\My Projects\SocialApe-App\socialape-functions\functions\node_modules\firebase-admin\lib\auth\token-verifier.js:191:17
+[info] >      at new Promise (<anonymous>)
+[info] >      at FirebaseTokenVerifier.verifyJwtSignatureWithKey (E:\My Projects\SocialApe-App\socialape-functions\functions\node_modules\firebase-admin\lib\auth\token-verifier.js:190:16)
+[info] >      at E:\My Projects\SocialApe-App\socialape-functions\functions\node_modules\firebase-admin\lib\auth\token-verifier.js:175:30
+[info] >      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+[info] >    errorInfo: {
+[info] >      code: 'auth/id-token-expired',
+[info] >      message: 'Firebase ID token has expired. Get a fresh ID token from your client app and try again (auth/id-token-expired). See https://firebase.google.com/docs/auth/admin/verify-id-tokens for details on how to retrieve an ID token.'
+[info] >    },
+[info] >    codePrefix: 'auth'
+[info] >  }
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-22T03:06:04.468Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: IDLE
+[debug] [2020-03-22T03:06:04.469Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-03-22T03:06:35.796Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-22T03:06:35.796Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-22T03:06:35.796Z] Accepted request POST /socialape-ad195/europe-west1/api/login --> api
+[debug] [2020-03-22T03:06:35.796Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-22T03:06:35.796Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: Assigning socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-22T03:06:35.796Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: BUSY
+[debug] [2020-03-22T03:06:35.797Z] [runtime-status] [26480] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-22T03:06:35.798Z] [runtime-status] [26480] triggerDefinition {"regions":["europe-west1"],"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-22T03:06:35.798Z] [runtime-status] [26480] Running api in mode HTTPS
+[debug] [2020-03-22T03:06:35.798Z] [runtime-status] [26480] Attempting to listen to socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-22T03:06:35.799Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-22T03:06:35.816Z] [runtime-status] [26480] Ephemeral server handling POST request
+[debug] [2020-03-22T03:06:35.828Z] [runtime-status] [26480] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~2s
+[debug] [2020-03-22T03:06:38.021Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: IDLE
+[debug] [2020-03-22T03:06:38.021Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-03-22T03:06:54.246Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-22T03:06:54.246Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-22T03:06:54.246Z] Accepted request GET /socialape-ad195/europe-west1/api/scream/ezTCuAjWTCkR9T6lS07U/like --> api
+[debug] [2020-03-22T03:06:54.246Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-22T03:06:54.246Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: Assigning socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-22T03:06:54.247Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: BUSY
+[debug] [2020-03-22T03:06:54.247Z] [runtime-status] [26480] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-22T03:06:54.249Z] [runtime-status] [26480] triggerDefinition {"regions":["europe-west1"],"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-22T03:06:54.250Z] [runtime-status] [26480] Running api in mode HTTPS
+[debug] [2020-03-22T03:06:54.250Z] [runtime-status] [26480] Attempting to listen to socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-22T03:06:54.251Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-22T03:06:54.255Z] [runtime-status] [26480] Ephemeral server handling GET request
+[debug] [2020-03-22T03:06:54.257Z] [runtime-status] [26480] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-22T03:06:55.050Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: IDLE
+[debug] [2020-03-22T03:06:55.050Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-03-22T03:07:03.977Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-22T03:07:03.977Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-22T03:07:03.977Z] Accepted request GET /socialape-ad195/europe-west1/api/scream/ezTCuAjWTCkR9T6lS07U/like --> api
+[debug] [2020-03-22T03:07:03.977Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-22T03:07:03.977Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: Assigning socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-22T03:07:03.977Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: BUSY
+[debug] [2020-03-22T03:07:03.977Z] [runtime-status] [26480] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-22T03:07:03.979Z] [runtime-status] [26480] triggerDefinition {"regions":["europe-west1"],"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-22T03:07:03.979Z] [runtime-status] [26480] Running api in mode HTTPS
+[debug] [2020-03-22T03:07:03.979Z] [runtime-status] [26480] Attempting to listen to socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-22T03:07:03.980Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-22T03:07:03.982Z] [runtime-status] [26480] Ephemeral server handling GET request
+[debug] [2020-03-22T03:07:03.982Z] [runtime-status] [26480] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-22T03:07:04.256Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: IDLE
+[debug] [2020-03-22T03:07:04.257Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-03-22T03:07:57.145Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-22T03:07:57.145Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-22T03:07:57.145Z] Accepted request GET /socialape-ad195/europe-west1/api/scream/ezTCuAjWTCkR9T6lS07U/unlike --> api
+[debug] [2020-03-22T03:07:57.145Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-22T03:07:57.145Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: Assigning socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-22T03:07:57.145Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: BUSY
+[debug] [2020-03-22T03:07:57.146Z] [runtime-status] [26480] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-22T03:07:57.147Z] [runtime-status] [26480] triggerDefinition {"regions":["europe-west1"],"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-22T03:07:57.147Z] [runtime-status] [26480] Running api in mode HTTPS
+[debug] [2020-03-22T03:07:57.148Z] [runtime-status] [26480] Attempting to listen to socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-22T03:07:57.149Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-22T03:07:57.152Z] [runtime-status] [26480] Ephemeral server handling GET request
+[debug] [2020-03-22T03:07:57.152Z] [runtime-status] [26480] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-22T03:07:57.580Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: IDLE
+[debug] [2020-03-22T03:07:57.580Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-03-23T01:58:26.227Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-23T01:58:26.227Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-23T01:58:26.227Z] Accepted request GET /socialape-ad195/europe-west1/api/scream/ezTCuAjWTCkR9T6lS07U/like --> api
+[debug] [2020-03-23T01:58:26.227Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-23T01:58:26.227Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: Assigning socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-23T01:58:26.227Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: BUSY
+[debug] [2020-03-23T01:58:26.228Z] [runtime-status] [26480] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-23T01:58:26.230Z] [runtime-status] [26480] triggerDefinition {"regions":["europe-west1"],"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-23T01:58:26.230Z] [runtime-status] [26480] Running api in mode HTTPS
+[debug] [2020-03-23T01:58:26.230Z] [runtime-status] [26480] Attempting to listen to socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-23T01:58:26.234Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-23T01:58:26.237Z] [runtime-status] [26480] Ephemeral server handling GET request
+[debug] [2020-03-23T01:58:26.239Z] [runtime-status] [26480] Ephemeral server survived.
+[info] >  Error while verifying token  FirebaseAuthError: Firebase ID token has expired. Get a fresh ID token from your client app and try again (auth/id-token-expired). See https://firebase.google.com/docs/auth/admin/verify-id-tokens for details on how to retrieve an ID token.
+[info] >      at FirebaseAuthError.FirebaseError [as constructor] (E:\My Projects\SocialApe-App\socialape-functions\functions\node_modules\firebase-admin\lib\utils\error.js:42:28)
+[info] >      at FirebaseAuthError.PrefixedFirebaseError [as constructor] (E:\My Projects\SocialApe-App\socialape-functions\functions\node_modules\firebase-admin\lib\utils\error.js:88:28)
+[info] >      at new FirebaseAuthError (E:\My Projects\SocialApe-App\socialape-functions\functions\node_modules\firebase-admin\lib\utils\error.js:147:16)
+[info] >      at E:\My Projects\SocialApe-App\socialape-functions\functions\node_modules\firebase-admin\lib\auth\token-verifier.js:199:39
+[info] >      at Object.module.exports [as verify] (E:\My Projects\SocialApe-App\socialape-functions\functions\node_modules\jsonwebtoken\verify.js:126:14)
+[info] >      at E:\My Projects\SocialApe-App\socialape-functions\functions\node_modules\firebase-admin\lib\auth\token-verifier.js:191:17
+[info] >      at new Promise (<anonymous>)
+[info] >      at FirebaseTokenVerifier.verifyJwtSignatureWithKey (E:\My Projects\SocialApe-App\socialape-functions\functions\node_modules\firebase-admin\lib\auth\token-verifier.js:190:16)
+[info] >      at E:\My Projects\SocialApe-App\socialape-functions\functions\node_modules\firebase-admin\lib\auth\token-verifier.js:175:30
+[info] >      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+[info] >    errorInfo: {
+[info] >      code: 'auth/id-token-expired',
+[info] >      message: 'Firebase ID token has expired. Get a fresh ID token from your client app and try again (auth/id-token-expired). See https://firebase.google.com/docs/auth/admin/verify-id-tokens for details on how to retrieve an ID token.'
+[info] >    },
+[info] >    codePrefix: 'auth'
+[info] >  }
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-23T01:58:26.295Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: IDLE
+[debug] [2020-03-23T01:58:26.295Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-03-23T01:58:56.729Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-23T01:58:56.730Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-23T01:58:56.730Z] Accepted request POST /socialape-ad195/europe-west1/api/login --> api
+[debug] [2020-03-23T01:58:56.730Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-23T01:58:56.730Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: Assigning socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-23T01:58:56.730Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: BUSY
+[debug] [2020-03-23T01:58:56.731Z] [runtime-status] [26480] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-23T01:58:56.733Z] [runtime-status] [26480] triggerDefinition {"regions":["europe-west1"],"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-23T01:58:56.733Z] [runtime-status] [26480] Running api in mode HTTPS
+[debug] [2020-03-23T01:58:56.734Z] [runtime-status] [26480] Attempting to listen to socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-23T01:58:56.735Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-23T01:58:56.739Z] [runtime-status] [26480] Ephemeral server handling POST request
+[debug] [2020-03-23T01:58:56.742Z] [runtime-status] [26480] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-23T01:58:57.785Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: IDLE
+[debug] [2020-03-23T01:58:57.785Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-03-23T01:59:41.073Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-23T01:59:41.073Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-23T01:59:41.074Z] Accepted request GET /socialape-ad195/europe-west1/api/scream/ezTCuAjWTCkR9T6lS07U/like --> api
+[debug] [2020-03-23T01:59:41.074Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-23T01:59:41.074Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: Assigning socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-23T01:59:41.074Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: BUSY
+[debug] [2020-03-23T01:59:41.075Z] [runtime-status] [26480] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-23T01:59:41.077Z] [runtime-status] [26480] triggerDefinition {"regions":["europe-west1"],"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-23T01:59:41.077Z] [runtime-status] [26480] Running api in mode HTTPS
+[debug] [2020-03-23T01:59:41.077Z] [runtime-status] [26480] Attempting to listen to socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-23T01:59:41.079Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-23T01:59:41.085Z] [runtime-status] [26480] Ephemeral server handling GET request
+[debug] [2020-03-23T01:59:41.086Z] [runtime-status] [26480] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-23T01:59:41.722Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: IDLE
+[debug] [2020-03-23T01:59:41.722Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-03-23T02:00:14.233Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-23T02:00:14.233Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-23T02:00:14.233Z] Accepted request GET /socialape-ad195/europe-west1/api/user/new7 --> api
+[debug] [2020-03-23T02:00:14.234Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-23T02:00:14.234Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: Assigning socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-23T02:00:14.234Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: BUSY
+[debug] [2020-03-23T02:00:14.236Z] [runtime-status] [26480] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-23T02:00:14.238Z] [runtime-status] [26480] triggerDefinition {"regions":["europe-west1"],"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-23T02:00:14.238Z] [runtime-status] [26480] Running api in mode HTTPS
+[debug] [2020-03-23T02:00:14.240Z] [runtime-status] [26480] Attempting to listen to socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-23T02:00:14.242Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-23T02:00:14.244Z] [runtime-status] [26480] Ephemeral server handling GET request
+[debug] [2020-03-23T02:00:14.245Z] [runtime-status] [26480] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-23T02:00:14.435Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: IDLE
+[debug] [2020-03-23T02:00:14.435Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-03-23T02:00:26.768Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-23T02:00:26.768Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-23T02:00:26.768Z] Accepted request POST /socialape-ad195/europe-west1/api/notifications --> api
+[debug] [2020-03-23T02:00:26.768Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-23T02:00:26.768Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: Assigning socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-23T02:00:26.768Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: BUSY
+[debug] [2020-03-23T02:00:26.769Z] [runtime-status] [26480] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-23T02:00:26.771Z] [runtime-status] [26480] triggerDefinition {"regions":["europe-west1"],"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-23T02:00:26.771Z] [runtime-status] [26480] Running api in mode HTTPS
+[debug] [2020-03-23T02:00:26.771Z] [runtime-status] [26480] Attempting to listen to socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-23T02:00:26.773Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-23T02:00:26.778Z] [runtime-status] [26480] Ephemeral server handling POST request
+[debug] [2020-03-23T02:00:26.779Z] [runtime-status] [26480] Ephemeral server survived.
+[info] >  Error while verifying token  FirebaseAuthError: Firebase ID token has expired. Get a fresh ID token from your client app and try again (auth/id-token-expired). See https://firebase.google.com/docs/auth/admin/verify-id-tokens for details on how to retrieve an ID token.
+[info] >      at FirebaseAuthError.FirebaseError [as constructor] (E:\My Projects\SocialApe-App\socialape-functions\functions\node_modules\firebase-admin\lib\utils\error.js:42:28)
+[info] >      at FirebaseAuthError.PrefixedFirebaseError [as constructor] (E:\My Projects\SocialApe-App\socialape-functions\functions\node_modules\firebase-admin\lib\utils\error.js:88:28)
+[info] >      at new FirebaseAuthError (E:\My Projects\SocialApe-App\socialape-functions\functions\node_modules\firebase-admin\lib\utils\error.js:147:16)
+[info] >      at E:\My Projects\SocialApe-App\socialape-functions\functions\node_modules\firebase-admin\lib\auth\token-verifier.js:199:39
+[info] >      at Object.module.exports [as verify] (E:\My Projects\SocialApe-App\socialape-functions\functions\node_modules\jsonwebtoken\verify.js:126:14)
+[info] >      at E:\My Projects\SocialApe-App\socialape-functions\functions\node_modules\firebase-admin\lib\auth\token-verifier.js:191:17
+[info] >      at new Promise (<anonymous>)
+[info] >      at FirebaseTokenVerifier.verifyJwtSignatureWithKey (E:\My Projects\SocialApe-App\socialape-functions\functions\node_modules\firebase-admin\lib\auth\token-verifier.js:190:16)
+[info] >      at E:\My Projects\SocialApe-App\socialape-functions\functions\node_modules\firebase-admin\lib\auth\token-verifier.js:175:30
+[info] >      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+[info] >    errorInfo: {
+[info] >      code: 'auth/id-token-expired',
+[info] >      message: 'Firebase ID token has expired. Get a fresh ID token from your client app and try again (auth/id-token-expired). See https://firebase.google.com/docs/auth/admin/verify-id-tokens for details on how to retrieve an ID token.'
+[info] >    },
+[info] >    codePrefix: 'auth'
+[info] >  }
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-23T02:00:26.802Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: IDLE
+[debug] [2020-03-23T02:00:26.802Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-03-23T02:00:54.852Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-23T02:00:54.852Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-23T02:00:54.852Z] Accepted request POST /socialape-ad195/europe-west1/api/notifications --> api
+[debug] [2020-03-23T02:00:54.852Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-23T02:00:54.852Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: Assigning socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-23T02:00:54.852Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: BUSY
+[debug] [2020-03-23T02:00:54.853Z] [runtime-status] [26480] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-23T02:00:54.855Z] [runtime-status] [26480] triggerDefinition {"regions":["europe-west1"],"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-23T02:00:54.855Z] [runtime-status] [26480] Running api in mode HTTPS
+[debug] [2020-03-23T02:00:54.856Z] [runtime-status] [26480] Attempting to listen to socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-23T02:00:54.857Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-23T02:00:54.861Z] [runtime-status] [26480] Ephemeral server handling POST request
+[debug] [2020-03-23T02:00:54.861Z] [runtime-status] [26480] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-23T02:00:55.089Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: IDLE
+[debug] [2020-03-23T02:00:55.089Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-03-23T02:01:15.801Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-23T02:01:15.801Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-23T02:01:15.801Z] Accepted request POST /socialape-ad195/europe-west1/api/login --> api
+[debug] [2020-03-23T02:01:15.801Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-23T02:01:15.802Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: Assigning socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-23T02:01:15.802Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: BUSY
+[debug] [2020-03-23T02:01:15.802Z] [runtime-status] [26480] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-23T02:01:15.803Z] [runtime-status] [26480] triggerDefinition {"regions":["europe-west1"],"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-23T02:01:15.803Z] [runtime-status] [26480] Running api in mode HTTPS
+[debug] [2020-03-23T02:01:15.803Z] [runtime-status] [26480] Attempting to listen to socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-23T02:01:15.804Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-23T02:01:15.806Z] [runtime-status] [26480] Ephemeral server handling POST request
+[debug] [2020-03-23T02:01:15.807Z] [runtime-status] [26480] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-23T02:01:16.320Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: IDLE
+[debug] [2020-03-23T02:01:16.320Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-03-23T02:01:36.360Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-23T02:01:36.360Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-23T02:01:36.361Z] Accepted request POST /socialape-ad195/europe-west1/api/notifications --> api
+[debug] [2020-03-23T02:01:36.361Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-23T02:01:36.361Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: Assigning socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-23T02:01:36.361Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: BUSY
+[debug] [2020-03-23T02:01:36.361Z] [runtime-status] [26480] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-23T02:01:36.362Z] [runtime-status] [26480] triggerDefinition {"regions":["europe-west1"],"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-23T02:01:36.362Z] [runtime-status] [26480] Running api in mode HTTPS
+[debug] [2020-03-23T02:01:36.363Z] [runtime-status] [26480] Attempting to listen to socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-23T02:01:36.364Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-23T02:01:36.366Z] [runtime-status] [26480] Ephemeral server handling POST request
+[debug] [2020-03-23T02:01:36.366Z] [runtime-status] [26480] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-23T02:01:36.602Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: IDLE
+[debug] [2020-03-23T02:01:36.602Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-03-23T02:01:58.170Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-23T02:01:58.170Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-23T02:01:58.170Z] Accepted request GET /socialape-ad195/europe-west1/api/scream/ezTCuAjWTCkR9T6lS07U/like --> api
+[debug] [2020-03-23T02:01:58.171Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-23T02:01:58.171Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: Assigning socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-23T02:01:58.171Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: BUSY
+[debug] [2020-03-23T02:01:58.172Z] [runtime-status] [26480] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-23T02:01:58.174Z] [runtime-status] [26480] triggerDefinition {"regions":["europe-west1"],"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-23T02:01:58.174Z] [runtime-status] [26480] Running api in mode HTTPS
+[debug] [2020-03-23T02:01:58.174Z] [runtime-status] [26480] Attempting to listen to socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-23T02:01:58.176Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-23T02:01:58.179Z] [runtime-status] [26480] Ephemeral server handling GET request
+[debug] [2020-03-23T02:01:58.180Z] [runtime-status] [26480] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-23T02:01:58.699Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: IDLE
+[debug] [2020-03-23T02:01:58.699Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-03-23T02:02:11.683Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-23T02:02:11.683Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-23T02:02:11.683Z] Accepted request GET /socialape-ad195/europe-west1/api/scream/ezTCuAjWTCkR9T6lS07U/like --> api
+[debug] [2020-03-23T02:02:11.683Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-23T02:02:11.683Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: Assigning socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-23T02:02:11.683Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: BUSY
+[debug] [2020-03-23T02:02:11.683Z] [runtime-status] [26480] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-23T02:02:11.685Z] [runtime-status] [26480] triggerDefinition {"regions":["europe-west1"],"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-23T02:02:11.685Z] [runtime-status] [26480] Running api in mode HTTPS
+[debug] [2020-03-23T02:02:11.685Z] [runtime-status] [26480] Attempting to listen to socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-23T02:02:11.686Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-23T02:02:11.688Z] [runtime-status] [26480] Ephemeral server handling GET request
+[debug] [2020-03-23T02:02:11.688Z] [runtime-status] [26480] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-23T02:02:11.928Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: IDLE
+[debug] [2020-03-23T02:02:11.928Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-03-23T02:02:28.395Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-23T02:02:28.395Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-23T02:02:28.395Z] Accepted request GET /socialape-ad195/europe-west1/api/scream/ezTCuAjWTCkR9T6lS07U/unlike --> api
+[debug] [2020-03-23T02:02:28.395Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-23T02:02:28.395Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: Assigning socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-23T02:02:28.395Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: BUSY
+[debug] [2020-03-23T02:02:28.396Z] [runtime-status] [26480] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-23T02:02:28.397Z] [runtime-status] [26480] triggerDefinition {"regions":["europe-west1"],"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-23T02:02:28.397Z] [runtime-status] [26480] Running api in mode HTTPS
+[debug] [2020-03-23T02:02:28.398Z] [runtime-status] [26480] Attempting to listen to socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-23T02:02:28.399Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-23T02:02:28.402Z] [runtime-status] [26480] Ephemeral server handling GET request
+[debug] [2020-03-23T02:02:28.403Z] [runtime-status] [26480] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-23T02:02:28.869Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: IDLE
+[debug] [2020-03-23T02:02:28.869Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-03-23T02:02:40.330Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-23T02:02:40.330Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-23T02:02:40.330Z] Accepted request GET /socialape-ad195/europe-west1/api/user/new7 --> api
+[debug] [2020-03-23T02:02:40.330Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-23T02:02:40.331Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: Assigning socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-23T02:02:40.331Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: BUSY
+[debug] [2020-03-23T02:02:40.331Z] [runtime-status] [26480] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-23T02:02:40.333Z] [runtime-status] [26480] triggerDefinition {"regions":["europe-west1"],"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-23T02:02:40.333Z] [runtime-status] [26480] Running api in mode HTTPS
+[debug] [2020-03-23T02:02:40.334Z] [runtime-status] [26480] Attempting to listen to socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\26480
+[debug] [2020-03-23T02:02:40.336Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-23T02:02:40.339Z] [runtime-status] [26480] Ephemeral server handling GET request
+[debug] [2020-03-23T02:02:40.339Z] [runtime-status] [26480] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-23T02:02:40.471Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: IDLE
+[debug] [2020-03-23T02:02:40.471Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-03-23T02:07:46.018Z] File E:\My Projects\SocialApe-App\socialape-functions\functions\handlers\users.js changed, reloading triggers
+[debug] [2020-03-23T02:07:47.018Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-03-23T02:07:47.018Z] [worker-~diagnostic~-37546c9f-62c0-497b-9255-e7c5f3b133e0]: FINISHING
+[debug] [2020-03-23T02:07:47.019Z] [worker-pool] Shutting down IDLE worker (api)
+[debug] [2020-03-23T02:07:47.019Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: FINISHING
+[debug] [2020-03-23T02:07:47.041Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-23T02:07:47.041Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-03-23T02:07:47.041Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-23T02:07:47.042Z] [worker-~diagnostic~-d69b850a-9303-4bda-ab5f-e8c3340ac9ce]: Assigning socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\18040
+[debug] [2020-03-23T02:07:47.042Z] [worker-~diagnostic~-d69b850a-9303-4bda-ab5f-e8c3340ac9ce]: BUSY
+[debug] [2020-03-23T02:07:47.043Z] [worker-~diagnostic~-37546c9f-62c0-497b-9255-e7c5f3b133e0]: exited
+[debug] [2020-03-23T02:07:47.044Z] [worker-~diagnostic~-37546c9f-62c0-497b-9255-e7c5f3b133e0]: FINISHED
+[debug] [2020-03-23T02:07:47.044Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: exited
+[debug] [2020-03-23T02:07:47.044Z] [worker-api-b1534aa6-9c92-4cd4-b72a-4d24c1c4c90f]: FINISHED
+[debug] [2020-03-23T02:07:47.865Z] [runtime-status] [18040] Functions runtime initialized. {"cwd":"E:\\My Projects\\SocialApe-App\\socialape-functions\\functions","node_version":"12.13.1"}
+[debug] [2020-03-23T02:07:47.867Z] [runtime-status] [18040] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-23T02:07:47.874Z] [runtime-status] [18040] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"E:\\My Projects\\SocialApe-App\\socialape-functions\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2020-03-23T02:07:47.881Z] [runtime-status] [18040] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"E:\\My Projects\\SocialApe-App\\socialape-functions\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-03-23T02:07:47.884Z] [runtime-status] [18040] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"E:\\My Projects\\SocialApe-App\\socialape-functions\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-03-23T02:07:51.919Z] [worker-~diagnostic~-d69b850a-9303-4bda-ab5f-e8c3340ac9ce]: IDLE
+[debug] [2020-03-23T02:08:03.828Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-23T02:08:03.828Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-23T02:08:03.828Z] Accepted request POST /socialape-ad195/europe-west1/api/signup --> api
+[debug] [2020-03-23T02:08:03.828Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2020-03-23T02:08:03.828Z] [worker-pool] Cleaned up workers for api: 1 --> 0
+[debug] [2020-03-23T02:08:03.839Z] [worker-pool] addWorker(api)
+[debug] [2020-03-23T02:08:03.839Z] [worker-pool] Adding worker with key api, total=1
+[debug] [2020-03-23T02:08:03.839Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-23T02:08:03.840Z] [worker-api-e4a13c00-cc5d-4b79-a021-b35af81d46f0]: Assigning socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\17228
+[debug] [2020-03-23T02:08:03.840Z] [worker-api-e4a13c00-cc5d-4b79-a021-b35af81d46f0]: BUSY
+[debug] [2020-03-23T02:08:04.296Z] [runtime-status] [17228] Functions runtime initialized. {"cwd":"E:\\My Projects\\SocialApe-App\\socialape-functions\\functions","node_version":"12.13.1"}
+[debug] [2020-03-23T02:08:04.297Z] [runtime-status] [17228] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-23T02:08:04.300Z] [runtime-status] [17228] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"E:\\My Projects\\SocialApe-App\\socialape-functions\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2020-03-23T02:08:04.302Z] [runtime-status] [17228] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"E:\\My Projects\\SocialApe-App\\socialape-functions\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-03-23T02:08:04.303Z] [runtime-status] [17228] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"E:\\My Projects\\SocialApe-App\\socialape-functions\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-03-23T02:08:05.568Z] [runtime-status] [17228] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-23T02:08:05.570Z] [runtime-status] [17228] triggerDefinition {"regions":["europe-west1"],"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-23T02:08:05.571Z] [runtime-status] [17228] Running api in mode HTTPS
+[debug] [2020-03-23T02:08:05.579Z] [runtime-status] [17228] Attempting to listen to socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\17228
+[debug] [2020-03-23T02:08:05.584Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-23T02:08:05.632Z] [runtime-status] [17228] Ephemeral server handling POST request
+[debug] [2020-03-23T02:08:05.637Z] [runtime-status] [17228] Ephemeral server survived.
+[info] >  {
+[info] >    user: P {
+[info] >      N: [],
+[info] >      l: 'AIzaSyCTxBnuq1aohXdrRMbps3aYaBcjp3pyYmo',
+[info] >      m: '[DEFAULT]',
+[info] >      s: 'socialape-ad195.firebaseapp.com',
+[info] >      a: Ei {
+[info] >        c: 'AIzaSyCTxBnuq1aohXdrRMbps3aYaBcjp3pyYmo',
+[info] >        u: 'https://securetoken.googleapis.com/v1/token',
+[info] >        m: [We],
+[info] >        g: [Object],
+[info] >        h: 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/',
+[info] >        l: 'https://identitytoolkit.googleapis.com/v2/',
+[info] >        i: [We],
+[info] >        a: [Object],
+[info] >        f: [Di],
+[info] >        b: null
+[info] >      },
+[info] >      b: sm {
+[info] >        c: [Ei],
+[info] >        a: 'AEu4IL1lqJFh45zoruaGOorvBd-wEL9uw1DCs0CtP_HJ7gVbXdQYQBAAqmjO9bXCUpri8lL2pIdNCOLlEu6cTdw9i0jBmKH2WQ82jdWY0fNr5LuJakHPhIizjNIN5E6oB4N-0AyTInDmvTXonysv0tYk7TzFyPstJCdcNwN2oKTK_H6OkEH5GRTtTNRRbItysb1j09Km77QXKLs3YnfQvzZrb8wC7LI54A',
+[info] >        b: [eg]
+[info] >      },
+[info] >      xa: 'eyJhbGciOiJSUzI1NiIsImtpZCI6IjFmODhiODE0MjljYzQ1MWEzMzVjMmY1Y2RiM2RmYjM0ZWIzYmJjN2YiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vc29jaWFsYXBlLWFkMTk1IiwiYXVkIjoic29jaWFsYXBlLWFkMTk1IiwiYXV0aF90aW1lIjoxNTg0OTI5Mjg2LCJ1c2VyX2lkIjoiaVcyZlhzczlsbVphODUzMzJ0clBCaDV4R21sMSIsInN1YiI6ImlXMmZYc3M5bG1aYTg1MzMydHJQQmg1eEdtbDEiLCJpYXQiOjE1ODQ5MjkyODYsImV4cCI6MTU4NDkzMjg4NiwiZW1haWwiOiJuZXc4QGVtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJuZXc4QGVtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.i97xyK14q8VG3iRKJMy7em5xxsFfCCxv1KIrIvwQhqgTH-lwQ9mdo58W5FTWqmDjAdkPjuXCzW7KpojYn-JPUfXQ993MEtEDbHVJ3auScCS7T1zsCfPG57uFoQqnbfxoSFlJxbdb7eL51qJcEh5tVo74ctycewVTRlAQgjixS2yYynacy-bhoQtns0ZEvMPTGZnedPLBzX8_ZnGDbJmPIyWY-_YWUKVA-LcXFch_mtbHuVdZ421sKP9sgzFC2SnFMCltA-AZRXNZ1EzpIA245Z0acs0HCk518hevChYFjS5131Go1_Y5Z7b4zExFzlGWYKiFd2IZIpsqo6-of4bLDw',
+[info] >      _lat: 'eyJhbGciOiJSUzI1NiIsImtpZCI6IjFmODhiODE0MjljYzQ1MWEzMzVjMmY1Y2RiM2RmYjM0ZWIzYmJjN2YiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vc29jaWFsYXBlLWFkMTk1IiwiYXVkIjoic29jaWFsYXBlLWFkMTk1IiwiYXV0aF90aW1lIjoxNTg0OTI5Mjg2LCJ1c2VyX2lkIjoiaVcyZlhzczlsbVphODUzMzJ0clBCaDV4R21sMSIsInN1YiI6ImlXMmZYc3M5bG1aYTg1MzMydHJQQmg1eEdtbDEiLCJpYXQiOjE1ODQ5MjkyODYsImV4cCI6MTU4NDkzMjg4NiwiZW1haWwiOiJuZXc4QGVtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJuZXc4QGVtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.i97xyK14q8VG3iRKJMy7em5xxsFfCCxv1KIrIvwQhqgTH-lwQ9mdo58W5FTWqmDjAdkPjuXCzW7KpojYn-JPUfXQ993MEtEDbHVJ3auScCS7T1zsCfPG57uFoQqnbfxoSFlJxbdb7eL51qJcEh5tVo74ctycewVTRlAQgjixS2yYynacy-bhoQtns0ZEvMPTGZnedPLBzX8_ZnGDbJmPIyWY-_YWUKVA-LcXFch_mtbHuVdZ421sKP9sgzFC2SnFMCltA-AZRXNZ1EzpIA245Z0acs0HCk518hevChYFjS5131Go1_Y5Z7b4zExFzlGWYKiFd2IZIpsqo6-of4bLDw',
+[info] >      refreshToken: 'AEu4IL1lqJFh45zoruaGOorvBd-wEL9uw1DCs0CtP_HJ7gVbXdQYQBAAqmjO9bXCUpri8lL2pIdNCOLlEu6cTdw9i0jBmKH2WQ82jdWY0fNr5LuJakHPhIizjNIN5E6oB4N-0AyTInDmvTXonysv0tYk7TzFyPstJCdcNwN2oKTK_H6OkEH5GRTtTNRRbItysb1j09Km77QXKLs3YnfQvzZrb8wC7LI54A',
+[info] >      uid: 'iW2fXss9lmZa85332trPBh5xGml1',
+[info] >      displayName: null,
+[info] >      photoURL: null,
+[info] >      email: 'new8@email.com',
+[info] >      emailVerified: false,
+[info] >      phoneNumber: null,
+[info] >      isAnonymous: false,
+[info] >      tenantId: null,
+[info] >      metadata: xm {
+[info] >        a: '1584929286132',
+[info] >        b: '1584929286132',
+[info] >        lastSignInTime: 'Mon, 23 Mar 2020 02:08:06 GMT',
+[info] >        creationTime: 'Mon, 23 Mar 2020 02:08:06 GMT'
+[info] >      },
+[info] >      providerData: [ [zm] ],
+[info] >      wa: false,
+[info] >      na: undefined,
+[info] >      u: dd { src: [Circular], a: [Object], b: 4 },
+[info] >      Yb: [Circular],
+[info] >      eb: null,
+[info] >      P: false,
+[info] >      R: [ [Function: bound ] ],
+[info] >      h: null,
+[info] >      B: pm {
+[info] >        h: [Function],
+[info] >        i: [Function],
+[info] >        g: [Function],
+[info] >        c: 30000,
+[info] >        f: 960000,
+[info] >        b: null,
+[info] >        a: 30000
+[info] >      },
+[info] >      Z: [Function: bound ],
+[info] >      oa: null,
+[info] >      za: [Function],
+[info] >      aa: un {
+[info] >        l: false,
+[info] >        settings: [Xl],
+[info] >        app: [FirebaseAppImpl],
+[info] >        b: [Ei],
+[info] >        P: [],
+[info] >        m: [Array],
+[info] >        O: [Array],
+[info] >        '$b': [Function: bound ],
+[info] >        W: 'iW2fXss9lmZa85332trPBh5xGml1',
+[info] >        ac: [Function: bound ],
+[info] >        currentUser: [Circular],
+[info] >        i: [kn],
+[info] >        B: [hn],
+[info] >        Z: [D],
+[info] >        h: [D],
+[info] >        aa: true,
+[info] >        oa: [Function: bound ],
+[info] >        Ma: [Function: bound ],
+[info] >        xa: [Function: bound ],
+[info] >        ya: [Function: bound ],
+[info] >        za: [Function: bound ],
+[info] >        a: null,
+[info] >        INTERNAL: [Object],
+[info] >        s: 0,
+[info] >        wa: false,
+[info] >        na: undefined,
+[info] >        u: [dd],
+[info] >        Yb: [Circular],
+[info] >        eb: null,
+[info] >        '$': null,
+[info] >        R: null,
+[info] >        N: [],
+[info] >        D: null
+[info] >      },
+[info] >      W: [],
+[info] >      ya: [Function],
+[info] >      '$': un {
+[info] >        l: false,
+[info] >        settings: [Xl],
+[info] >        app: [FirebaseAppImpl],
+[info] >        b: [Ei],
+[info] >        P: [],
+[info] >        m: [Array],
+[info] >        O: [Array],
+[info] >        '$b': [Function: bound ],
+[info] >        W: 'iW2fXss9lmZa85332trPBh5xGml1',
+[info] >        ac: [Function: bound ],
+[info] >        currentUser: [Circular],
+[info] >        i: [kn],
+[info] >        B: [hn],
+[info] >        Z: [D],
+[info] >        h: [D],
+[info] >        aa: true,
+[info] >        oa: [Function: bound ],
+[info] >        Ma: [Function: bound ],
+[info] >        xa: [Function: bound ],
+[info] >        ya: [Function: bound ],
+[info] >        za: [Function: bound ],
+[info] >        a: null,
+[info] >        INTERNAL: [Object],
+[info] >        s: 0,
+[info] >        wa: false,
+[info] >        na: undefined,
+[info] >        u: [dd],
+[info] >        Yb: [Circular],
+[info] >        eb: null,
+[info] >        '$': null,
+[info] >        R: null,
+[info] >        N: [],
+[info] >        D: null
+[info] >      },
+[info] >      O: lm {
+[info] >        a: [Circular],
+[info] >        b: [],
+[info] >        c: [Function: bound ],
+[info] >        enrolledFactors: []
+[info] >      },
+[info] >      multiFactor: lm {
+[info] >        a: [Circular],
+[info] >        b: [],
+[info] >        c: [Function: bound ],
+[info] >        enrolledFactors: []
+[info] >      },
+[info] >      ga: hn {
+[info] >        a: 'AIzaSyCTxBnuq1aohXdrRMbps3aYaBcjp3pyYmo:[DEFAULT]',
+[info] >        b: [Mk]
+[info] >      }
+[info] >    },
+[info] >    credential: null,
+[info] >    additionalUserInfo: tg { providerId: 'password', isNewUser: true },
+[info] >    operationType: 'signIn'
+[info] >  }
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-23T02:08:06.852Z] [worker-api-e4a13c00-cc5d-4b79-a021-b35af81d46f0]: IDLE
+[debug] [2020-03-23T02:08:06.852Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-03-23T02:13:57.917Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-23T02:13:57.918Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-23T02:13:57.918Z] Accepted request POST /socialape-ad195/europe-west1/api/login --> api
+[debug] [2020-03-23T02:13:57.918Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-23T02:13:57.918Z] [worker-api-e4a13c00-cc5d-4b79-a021-b35af81d46f0]: Assigning socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\17228
+[debug] [2020-03-23T02:13:57.918Z] [worker-api-e4a13c00-cc5d-4b79-a021-b35af81d46f0]: BUSY
+[debug] [2020-03-23T02:13:57.918Z] [runtime-status] [17228] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-23T02:13:57.920Z] [runtime-status] [17228] triggerDefinition {"regions":["europe-west1"],"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-23T02:13:57.920Z] [runtime-status] [17228] Running api in mode HTTPS
+[debug] [2020-03-23T02:13:57.920Z] [runtime-status] [17228] Attempting to listen to socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\17228
+[debug] [2020-03-23T02:13:57.921Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-23T02:13:57.925Z] [runtime-status] [17228] Ephemeral server handling POST request
+[debug] [2020-03-23T02:13:57.929Z] [runtime-status] [17228] Ephemeral server survived.
+[info] >  {
+[info] >    user: P {
+[info] >      N: [],
+[info] >      l: 'AIzaSyCTxBnuq1aohXdrRMbps3aYaBcjp3pyYmo',
+[info] >      m: '[DEFAULT]',
+[info] >      s: 'socialape-ad195.firebaseapp.com',
+[info] >      a: Ei {
+[info] >        c: 'AIzaSyCTxBnuq1aohXdrRMbps3aYaBcjp3pyYmo',
+[info] >        u: 'https://securetoken.googleapis.com/v1/token',
+[info] >        m: [We],
+[info] >        g: [Object],
+[info] >        h: 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/',
+[info] >        l: 'https://identitytoolkit.googleapis.com/v2/',
+[info] >        i: [We],
+[info] >        a: [Object],
+[info] >        f: [Di],
+[info] >        b: null
+[info] >      },
+[info] >      b: sm {
+[info] >        c: [Ei],
+[info] >        a: 'AEu4IL23DwgiA4exLgRosq2WaBbAY_L-n1IH-goyUIL9j3mUN9uSoxXSkucP3sPlfvRQqL68i6-4zkLFGoqw2Sv4ft6sIHtXiwQ86YLdv4jUlDhjsPFJSDy2JNM-paJgZW0dfDh0S8U34RY6O9KMRKe_si9EBWFT1-nmA0EaAzc7s2UT9-a7pSMXN9R3RhlDF0Ayb4VWAlD20_vHEYnHjaWLhyqcaZEmGQ',
+[info] >        b: [eg]
+[info] >      },
+[info] >      xa: 'eyJhbGciOiJSUzI1NiIsImtpZCI6IjFmODhiODE0MjljYzQ1MWEzMzVjMmY1Y2RiM2RmYjM0ZWIzYmJjN2YiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vc29jaWFsYXBlLWFkMTk1IiwiYXVkIjoic29jaWFsYXBlLWFkMTk1IiwiYXV0aF90aW1lIjoxNTg0OTI5Mjg2LCJ1c2VyX2lkIjoiaVcyZlhzczlsbVphODUzMzJ0clBCaDV4R21sMSIsInN1YiI6ImlXMmZYc3M5bG1aYTg1MzMydHJQQmg1eEdtbDEiLCJpYXQiOjE1ODQ5MjkyODYsImV4cCI6MTU4NDkzMjg4NiwiZW1haWwiOiJuZXc4QGVtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJuZXc4QGVtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.i97xyK14q8VG3iRKJMy7em5xxsFfCCxv1KIrIvwQhqgTH-lwQ9mdo58W5FTWqmDjAdkPjuXCzW7KpojYn-JPUfXQ993MEtEDbHVJ3auScCS7T1zsCfPG57uFoQqnbfxoSFlJxbdb7eL51qJcEh5tVo74ctycewVTRlAQgjixS2yYynacy-bhoQtns0ZEvMPTGZnedPLBzX8_ZnGDbJmPIyWY-_YWUKVA-LcXFch_mtbHuVdZ421sKP9sgzFC2SnFMCltA-AZRXNZ1EzpIA245Z0acs0HCk518hevChYFjS5131Go1_Y5Z7b4zExFzlGWYKiFd2IZIpsqo6-of4bLDw',
+[info] >      _lat: 'eyJhbGciOiJSUzI1NiIsImtpZCI6IjFmODhiODE0MjljYzQ1MWEzMzVjMmY1Y2RiM2RmYjM0ZWIzYmJjN2YiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vc29jaWFsYXBlLWFkMTk1IiwiYXVkIjoic29jaWFsYXBlLWFkMTk1IiwiYXV0aF90aW1lIjoxNTg0OTI5Mjg2LCJ1c2VyX2lkIjoiaVcyZlhzczlsbVphODUzMzJ0clBCaDV4R21sMSIsInN1YiI6ImlXMmZYc3M5bG1aYTg1MzMydHJQQmg1eEdtbDEiLCJpYXQiOjE1ODQ5MjkyODYsImV4cCI6MTU4NDkzMjg4NiwiZW1haWwiOiJuZXc4QGVtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJuZXc4QGVtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.i97xyK14q8VG3iRKJMy7em5xxsFfCCxv1KIrIvwQhqgTH-lwQ9mdo58W5FTWqmDjAdkPjuXCzW7KpojYn-JPUfXQ993MEtEDbHVJ3auScCS7T1zsCfPG57uFoQqnbfxoSFlJxbdb7eL51qJcEh5tVo74ctycewVTRlAQgjixS2yYynacy-bhoQtns0ZEvMPTGZnedPLBzX8_ZnGDbJmPIyWY-_YWUKVA-LcXFch_mtbHuVdZ421sKP9sgzFC2SnFMCltA-AZRXNZ1EzpIA245Z0acs0HCk518hevChYFjS5131Go1_Y5Z7b4zExFzlGWYKiFd2IZIpsqo6-of4bLDw',
+[info] >      refreshToken: 'AEu4IL23DwgiA4exLgRosq2WaBbAY_L-n1IH-goyUIL9j3mUN9uSoxXSkucP3sPlfvRQqL68i6-4zkLFGoqw2Sv4ft6sIHtXiwQ86YLdv4jUlDhjsPFJSDy2JNM-paJgZW0dfDh0S8U34RY6O9KMRKe_si9EBWFT1-nmA0EaAzc7s2UT9-a7pSMXN9R3RhlDF0Ayb4VWAlD20_vHEYnHjaWLhyqcaZEmGQ',
+[info] >      uid: 'iW2fXss9lmZa85332trPBh5xGml1',
+[info] >      displayName: null,
+[info] >      photoURL: null,
+[info] >      email: 'new8@email.com',
+[info] >      emailVerified: false,
+[info] >      phoneNumber: null,
+[info] >      isAnonymous: false,
+[info] >      tenantId: null,
+[info] >      metadata: xm {
+[info] >        a: '1584929286132',
+[info] >        b: '1584929637995',
+[info] >        lastSignInTime: 'Mon, 23 Mar 2020 02:13:57 GMT',
+[info] >        creationTime: 'Mon, 23 Mar 2020 02:08:06 GMT'
+[info] >      },
+[info] >      providerData: [ [zm] ],
+[info] >      wa: false,
+[info] >      na: undefined,
+[info] >      u: dd { src: [Circular], a: [Object], b: 4 },
+[info] >      Yb: [Circular],
+[info] >      eb: null,
+[info] >      P: false,
+[info] >      R: [ [Function: bound ] ],
+[info] >      h: null,
+[info] >      B: pm {
+[info] >        h: [Function],
+[info] >        i: [Function],
+[info] >        g: [Function],
+[info] >        c: 30000,
+[info] >        f: 960000,
+[info] >        b: null,
+[info] >        a: 30000
+[info] >      },
+[info] >      Z: [Function: bound ],
+[info] >      oa: null,
+[info] >      za: [Function],
+[info] >      aa: un {
+[info] >        l: false,
+[info] >        settings: [Xl],
+[info] >        app: [FirebaseAppImpl],
+[info] >        b: [Ei],
+[info] >        P: [],
+[info] >        m: [Array],
+[info] >        O: [Array],
+[info] >        '$b': [Function: bound ],
+[info] >        W: 'iW2fXss9lmZa85332trPBh5xGml1',
+[info] >        ac: [Function: bound ],
+[info] >        currentUser: [Circular],
+[info] >        i: [kn],
+[info] >        B: [hn],
+[info] >        Z: [D],
+[info] >        h: [D],
+[info] >        aa: true,
+[info] >        oa: [Function: bound ],
+[info] >        Ma: [Function: bound ],
+[info] >        xa: [Function: bound ],
+[info] >        ya: [Function: bound ],
+[info] >        za: [Function: bound ],
+[info] >        a: null,
+[info] >        INTERNAL: [Object],
+[info] >        s: 0,
+[info] >        wa: false,
+[info] >        na: undefined,
+[info] >        u: [dd],
+[info] >        Yb: [Circular],
+[info] >        eb: null,
+[info] >        '$': null,
+[info] >        R: null,
+[info] >        N: [],
+[info] >        D: null
+[info] >      },
+[info] >      W: [],
+[info] >      ya: [Function],
+[info] >      '$': un {
+[info] >        l: false,
+[info] >        settings: [Xl],
+[info] >        app: [FirebaseAppImpl],
+[info] >        b: [Ei],
+[info] >        P: [],
+[info] >        m: [Array],
+[info] >        O: [Array],
+[info] >        '$b': [Function: bound ],
+[info] >        W: 'iW2fXss9lmZa85332trPBh5xGml1',
+[info] >        ac: [Function: bound ],
+[info] >        currentUser: [Circular],
+[info] >        i: [kn],
+[info] >        B: [hn],
+[info] >        Z: [D],
+[info] >        h: [D],
+[info] >        aa: true,
+[info] >        oa: [Function: bound ],
+[info] >        Ma: [Function: bound ],
+[info] >        xa: [Function: bound ],
+[info] >        ya: [Function: bound ],
+[info] >        za: [Function: bound ],
+[info] >        a: null,
+[info] >        INTERNAL: [Object],
+[info] >        s: 0,
+[info] >        wa: false,
+[info] >        na: undefined,
+[info] >        u: [dd],
+[info] >        Yb: [Circular],
+[info] >        eb: null,
+[info] >        '$': null,
+[info] >        R: null,
+[info] >        N: [],
+[info] >        D: null
+[info] >      },
+[info] >      O: lm {
+[info] >        a: [Circular],
+[info] >        b: [],
+[info] >        c: [Function: bound ],
+[info] >        enrolledFactors: []
+[info] >      },
+[info] >      multiFactor: lm {
+[info] >        a: [Circular],
+[info] >        b: [],
+[info] >        c: [Function: bound ],
+[info] >        enrolledFactors: []
+[info] >      },
+[info] >      ga: hn {
+[info] >        a: 'AIzaSyCTxBnuq1aohXdrRMbps3aYaBcjp3pyYmo:[DEFAULT]',
+[info] >        b: [Mk]
+[info] >      }
+[info] >    },
+[info] >    credential: null,
+[info] >    additionalUserInfo: tg { providerId: 'password', isNewUser: false },
+[info] >    operationType: 'signIn'
+[info] >  }
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-23T02:13:58.600Z] [worker-api-e4a13c00-cc5d-4b79-a021-b35af81d46f0]: IDLE
+[debug] [2020-03-23T02:13:58.600Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-03-23T02:52:20.683Z] File E:\My Projects\SocialApe-App\socialape-functions\functions\index.js changed, reloading triggers
+[debug] [2020-03-23T02:52:20.724Z] File E:\My Projects\SocialApe-App\socialape-functions\functions\util\fbAuth.js changed, reloading triggers
+[debug] [2020-03-23T02:52:21.725Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-03-23T02:52:21.725Z] [worker-~diagnostic~-d69b850a-9303-4bda-ab5f-e8c3340ac9ce]: FINISHING
+[debug] [2020-03-23T02:52:21.725Z] [worker-pool] Shutting down IDLE worker (api)
+[debug] [2020-03-23T02:52:21.725Z] [worker-api-e4a13c00-cc5d-4b79-a021-b35af81d46f0]: FINISHING
+[debug] [2020-03-23T02:52:21.739Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-23T02:52:21.739Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-03-23T02:52:21.739Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-23T02:52:21.739Z] [worker-~diagnostic~-3531bd16-e85e-4159-8e35-a4f57402f90a]: Assigning socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\27096
+[debug] [2020-03-23T02:52:21.739Z] [worker-~diagnostic~-3531bd16-e85e-4159-8e35-a4f57402f90a]: BUSY
+[debug] [2020-03-23T02:52:21.739Z] [worker-api-e4a13c00-cc5d-4b79-a021-b35af81d46f0]: exited
+[debug] [2020-03-23T02:52:21.740Z] [worker-api-e4a13c00-cc5d-4b79-a021-b35af81d46f0]: FINISHED
+[debug] [2020-03-23T02:52:21.740Z] [worker-~diagnostic~-d69b850a-9303-4bda-ab5f-e8c3340ac9ce]: exited
+[debug] [2020-03-23T02:52:21.740Z] [worker-~diagnostic~-d69b850a-9303-4bda-ab5f-e8c3340ac9ce]: FINISHED
+[debug] [2020-03-23T02:52:22.110Z] [runtime-status] [27096] Functions runtime initialized. {"cwd":"E:\\My Projects\\SocialApe-App\\socialape-functions\\functions","node_version":"12.13.1"}
+[debug] [2020-03-23T02:52:22.112Z] [runtime-status] [27096] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-23T02:52:22.115Z] [runtime-status] [27096] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"E:\\My Projects\\SocialApe-App\\socialape-functions\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2020-03-23T02:52:22.118Z] [runtime-status] [27096] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"E:\\My Projects\\SocialApe-App\\socialape-functions\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-03-23T02:52:22.119Z] [runtime-status] [27096] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"E:\\My Projects\\SocialApe-App\\socialape-functions\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-03-23T02:52:23.664Z] [worker-~diagnostic~-3531bd16-e85e-4159-8e35-a4f57402f90a]: IDLE
+[debug] [2020-03-24T01:53:08.841Z] File E:\My Projects\SocialApe-App\socialape-functions\functions\handlers\users.js changed, reloading triggers
+[debug] [2020-03-24T01:53:09.841Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-03-24T01:53:09.841Z] [worker-~diagnostic~-3531bd16-e85e-4159-8e35-a4f57402f90a]: FINISHING
+[debug] [2020-03-24T01:53:09.841Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2020-03-24T01:53:09.841Z] [worker-pool] Cleaned up workers for api: 1 --> 0
+[debug] [2020-03-24T01:53:09.855Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-24T01:53:09.855Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-03-24T01:53:09.856Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-24T01:53:09.856Z] [worker-~diagnostic~-bfd9846b-49c4-416f-85d6-719df7f6c39e]: Assigning socketPath: \\?\pipe\E:\My Projects\SocialApe-App\socialape-functions\functions\10496
+[debug] [2020-03-24T01:53:09.856Z] [worker-~diagnostic~-bfd9846b-49c4-416f-85d6-719df7f6c39e]: BUSY
+[debug] [2020-03-24T01:53:09.856Z] [worker-~diagnostic~-3531bd16-e85e-4159-8e35-a4f57402f90a]: exited
+[debug] [2020-03-24T01:53:09.856Z] [worker-~diagnostic~-3531bd16-e85e-4159-8e35-a4f57402f90a]: FINISHED

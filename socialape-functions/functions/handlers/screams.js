@@ -82,10 +82,10 @@ exports.getScream = async (req, res) => {
       screamData.comments.push(comment.data());
     });
 
-    res.status(200).json(screamData);
+    return res.status(200).json(screamData);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: err.code });
+    return res.status(500).json({ error: err.code });
   }
 };
 
@@ -139,25 +139,26 @@ exports.likeScream = async (req, res) => {
     let screamData;
 
     const liked = await likeDocument.get();
-    if (liked.empty) {
-      await db.collection("likes").add({
-        screamId: req.params.screamId,
-        userHandle: req.user.handle,
-        createdAt: new Date().toISOString()
-      });
 
-      screamData = scream.data();
-      screamData.screamId = scream.id;
-      screamData.likeCount++;
-      await scream.ref.update({ likeCount: screamData.likeCount });
-
-      return res.status(201).json(screamData);
-    } else {
+    if (!liked.empty) {
       return res.status(400).json({ error: "Scream already liked" });
     }
+
+    await db.collection("likes").add({
+      screamId: req.params.screamId,
+      userHandle: req.user.handle,
+      createdAt: new Date().toISOString()
+    });
+
+    screamData = scream.data();
+    screamData.screamId = scream.id;
+    screamData.likeCount++;
+    await scream.ref.update({ likeCount: screamData.likeCount });
+
+    return res.status(201).json(screamData);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: err.code });
+    return res.status(500).json({ error: err.code });
   }
 };
 
@@ -179,20 +180,21 @@ exports.unlikeScream = async (req, res) => {
     let screamData;
 
     const liked = await likeDocument.get();
+
     if (liked.empty) {
       return res.status(400).json({ error: "Scream not liked" });
-    } else {
-      await db.doc(`/likes/${liked.docs[0].id}`).delete();
-
-      screamData = scream.data();
-      screamData.likeCount--;
-      await scream.ref.update({ likeCount: screamData.likeCount });
-
-      return res.status(201).json(screamData);
     }
+
+    await db.doc(`/likes/${liked.docs[0].id}`).delete();
+
+    screamData = scream.data();
+    screamData.likeCount--;
+    await scream.ref.update({ likeCount: screamData.likeCount });
+
+    return res.status(201).json(screamData);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: err.code });
+    return res.status(500).json({ error: err.code });
   }
 };
 
@@ -211,9 +213,9 @@ exports.deleteScream = async (req, res) => {
 
     await scream.ref.delete();
 
-    res.status(200).json({ message: `Scream deleted successfully` });
+    return res.status(200).json({ message: `Scream deleted successfully` });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: err.code });
+    return res.status(500).json({ error: err.code });
   }
 };

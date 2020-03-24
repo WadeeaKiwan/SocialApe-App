@@ -17,8 +17,15 @@ const {
   login,
   uploadImage,
   addUserDetails,
-  getAuthenticatedUser
+  getAuthenticatedUser,
+  getUserDetails,
+  markNotificationsRead
 } = require("./handlers/users");
+const {
+  createNotificationOnLike,
+  createNotificationOnUnlike,
+  createNotificationOnComment
+} = require("./triggers/triggers");
 
 const app = require("express")();
 // Access to selected resources from a different origin
@@ -39,6 +46,13 @@ app.post("/login", login);
 app.post("/user/image", FBAuth, uploadImage);
 app.post("/user", FBAuth, addUserDetails);
 app.get("/user", FBAuth, getAuthenticatedUser);
+app.get("/user/:handle", getUserDetails);
+app.post("/notifications", FBAuth, markNotificationsRead);
 
 // Serve all routes with '/api' 'https://baseUrl.com/api'
 exports.api = functions.region("europe-west1").https.onRequest(app);
+
+// Triggers
+exports.createNotificationOnLike = createNotificationOnLike();
+exports.createNotificationOnUnlike = createNotificationOnUnlike();
+exports.createNotificationOnComment = createNotificationOnComment();

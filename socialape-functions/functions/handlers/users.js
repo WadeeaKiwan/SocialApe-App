@@ -26,12 +26,12 @@ exports.signup = async (req, res) => {
   const noImg = "no-img.png";
 
   try {
-    const doc = await db
+    const handle = await db
       .collection("users")
       .doc(newUser.handle)
       .get();
 
-    if (doc.exists) {
+    if (handle.exists) {
       return res.status(400).json({ handle: "This handle is already taken" });
     }
     const data = await firebase
@@ -105,27 +105,87 @@ exports.addUserDetails = async (req, res) => {
   }
 };
 
+// Get any user's details
+exports.getUserDetails = async (req, res) => {
+  let userData = {};
+
+  try {
+    const user = await db.doc(`/users/${req.params.handle}`).get();
+
+    if (!user.exists) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    userData.user = user.data();
+
+    const screams = await db
+      .collection("screams")
+      .where("userHandle", "==", req.params.handle)
+      .orderBy("createdAt", "desc")
+      .get();
+
+    userData.screams = [];
+    screams.forEach(scream => {
+      userData.screams.push({
+        body: scream.data().body,
+        createdAt: scream.data().createdAt,
+        userHandle: scream.data().userHandle,
+        userImage: scream.data().userImage,
+        likeCount: scream.data().likeCount,
+        commentCount: scream.data().commentCount,
+        screamId: scream.id
+      });
+    });
+
+    return res.status(200).json(userData);
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: err.code });
+  }
+};
+
 // Get own user details - Firebase will still get the document of a collection by reference even though it's not existed yet
 exports.getAuthenticatedUser = async (req, res) => {
   let userData = {};
 
   try {
-    const doc = await db.doc(`/users/${req.user.handle}`).get();
+    const user = await db.doc(`/users/${req.user.handle}`).get();
 
-    if (doc.exists) {
-      userData.credentials = doc.data();
-      const data = await db
-        .collection("likes")
-        .where("userHandle", "==", req.user.handle)
-        .get();
-
-      userData.likes = [];
-      data.forEach(doc => {
-        userData.likes.push(doc.data());
-      });
-
-      return res.status(200).json(userData);
+    if (!user.exists) {
+      return res.status(404).json({ error: "User not found" });
     }
+
+    userData.credentials = user.data();
+    const likes = await db
+      .collection("likes")
+      .where("userHandle", "==", req.user.handle)
+      .get();
+
+    userData.likes = [];
+    likes.forEach(like => {
+      userData.likes.push(like.data());
+    });
+
+    const notifications = await db
+      .collection("notifications")
+      .where("recipient", "==", req.user.handle)
+      .orderBy("createdAt", "desc")
+      .get();
+
+    userData.notifications = [];
+    notifications.forEach(notification => {
+      userData.notifications.push({
+        recipient: notification.data().recipient,
+        sender: notification.data().sender,
+        createdAt: notification.data().createdAt,
+        screamId: notification.data().screamId,
+        type: notification.data().type,
+        read: notification.data().read,
+        notificationId: notification.id
+      });
+    });
+
+    return res.status(200).json(userData);
   } catch (err) {
     console.error(err);
     return res.status(500).json({ error: err.code });
@@ -156,7 +216,7 @@ exports.uploadImage = (req, res) => {
     imageFileName = `${Math.round(Math.random() * 1000000000).toString()}.${imageExtension}`;
     const filepath = path.join(os.tmpdir(), imageFileName);
     imageToBeUploaded = { filepath, mimetype };
-    file.pipe(fs.createWriteStream(filepath));
+    return file.pipe(fs.createWriteStream(filepath));
   });
 
   busboy.on("finish", async () => {
@@ -183,4 +243,28 @@ exports.uploadImage = (req, res) => {
     }
   });
   busboy.end(req.rawBody);
+};
+
+// Mark the notifications as read
+exports.markNotificationsRead = async (req, res) => {
+  try {
+    const user = await db.doc(`/users/${req.user.handle}`).get();
+
+    if (!user.exists) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    let batch = db.batch();
+    req.body.forEach(notificationId => {
+      const notification = db.doc(`/notifications/${notificationId}`);
+      batch.update(notification, { read: true });
+    });
+
+    await batch.commit();
+
+    return res.status(200).json({ message: "Notifications marked read" });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: err.code });
+  }
 };

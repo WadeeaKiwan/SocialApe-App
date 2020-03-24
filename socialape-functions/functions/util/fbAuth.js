@@ -14,14 +14,14 @@ module.exports = async (req, res, next) => {
     const decodedToken = await admin.auth().verifyIdToken(idToken);
     req.user = decodedToken;
 
-    const data = await db
+    const authUser = await db
       .collection("users")
       .where("userId", "==", req.user.uid)
       .limit(1)
       .get();
 
-    req.user.handle = data.docs[0].data().handle;
-    req.user.imageUrl = data.docs[0].data().imageUrl;
+    req.user.handle = authUser.docs[0].data().handle;
+    req.user.imageUrl = authUser.docs[0].data().imageUrl;
 
     return next();
   } catch (err) {
