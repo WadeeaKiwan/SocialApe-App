@@ -58,7 +58,7 @@ exports.signup = async (req, res) => {
     if (err.code === "auth/email-already-in-use") {
       return res.status(400).json({ email: "Email is already in use" });
     }
-    return res.status(500).json({ error: err.code });
+    return res.status(500).json({ general: "Something went wrong, please try again" });
   }
 };
 
@@ -85,10 +85,9 @@ exports.login = async (req, res) => {
     return res.status(201).json({ token });
   } catch (err) {
     console.error(err);
-    if (err.code === "auth/wrong-password") {
-      return res.status(403).json({ general: "Wrong credentials, please try again" });
-    }
-    return res.status(500).json({ error: err.code });
+    // auth/wrong-password
+    // auth/user-not-found
+    return res.status(403).json({ general: "Wrong credentials, please try again" });
   }
 };
 
@@ -254,7 +253,7 @@ exports.markNotificationsRead = async (req, res) => {
       return res.status(404).json({ error: "User not found" });
     }
 
-    let batch = db.batch();
+    const batch = db.batch();
     req.body.forEach(notificationId => {
       const notification = db.doc(`/notifications/${notificationId}`);
       batch.update(notification, { read: true });

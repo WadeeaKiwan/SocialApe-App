@@ -24,7 +24,9 @@ const {
 const {
   createNotificationOnLike,
   createNotificationOnUnlike,
-  createNotificationOnComment
+  createNotificationOnComment,
+  onUserImageChange,
+  onScreamDelete
 } = require("./triggers/triggers");
 
 const app = require("express")();
@@ -56,3 +58,5 @@ exports.api = functions.region("europe-west1").https.onRequest(app);
 exports.createNotificationOnLike = createNotificationOnLike();
 exports.createNotificationOnUnlike = createNotificationOnUnlike();
 exports.createNotificationOnComment = createNotificationOnComment();
+exports.onUserImageChange = onUserImageChange();
+exports.onScreamDelete = onScreamDelete();

@@ -92,7 +92,7 @@ exports.getScream = async (req, res) => {
 // Comment on a scream
 exports.commentOnScream = async (req, res) => {
   if (req.body.body.trim() === "") {
-    return res.status(400).json({ body: "Body must not be empty" });
+    return res.status(400).json({ comment: "Body must not be empty" });
   }
 
   try {
