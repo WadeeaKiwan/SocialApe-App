@@ -80,7 +80,7 @@ const Login = ({ classes, history, UI: { loading, errors }, loginUser }) => {
           ></TextField>
           {errorsData.general && (
             <Typography variant='body2' className={classes.customError}>
-              {errors.general}
+              {errorsData.general}
             </Typography>
           )}
           <Button
