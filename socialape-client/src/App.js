@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 
@@ -6,6 +6,10 @@ import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 import themeFile from "./util/theme";
 import jwtDecode from "jwt-decode";
+
+// Redux
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 // Pages
 import Home from "./pages/Home";
@@ -31,25 +35,23 @@ if (token) {
   }
 }
 
-class App extends Component {
-  render() {
-    return (
-      <MuiThemeProvider theme={theme}>
-        <div className='App'>
-          <Router>
-            <Navbar />
-            <div className='container'>
-              <Switch>
-                <Route exact path='/' component={Home} />
-                <AuthRoute exact path='/login' component={Login} authenticated={authenticated} />
-                <AuthRoute exact path='/signup' component={Signup} authenticated={authenticated} />
-              </Switch>
-            </div>
-          </Router>
-        </div>
-      </MuiThemeProvider>
-    );
-  }
-}
+const App = () => {
+  return (
+    <MuiThemeProvider theme={theme}>
+      <Provider store={store}>
+        <Router>
+          <Navbar />
+          <div className='container'>
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <AuthRoute exact path='/login' component={Login} authenticated={authenticated} />
+              <AuthRoute exact path='/signup' component={Signup} authenticated={authenticated} />
+            </Switch>
+          </div>
+        </Router>
+      </Provider>
+    </MuiThemeProvider>
+  );
+};
 
 export default App;

@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import AppIcon from "../images/icon.png";
-import axios from "axios";
 import { Link } from "react-router-dom";
 
 // MUI Stuff
@@ -12,41 +11,38 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
+// Redux Stuff
+import { connect } from "react-redux";
+import { loginUser } from "../redux/actions/userActions";
+
 const styles = theme => ({
   ...theme.styles
 });
 
-const INITIAL_USER = {
-  email: "",
-  password: ""
-};
+const Login = ({ classes, history, UI: { loading, errors }, loginUser }) => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: ""
+  });
+  const [errorsData, setErrorsData] = useState({});
 
-const Login = ({ classes, history }) => {
-  const [user, setUser] = useState(INITIAL_USER);
-  const [loading, setLoading] = useState(false);
-  const [errors, setErrors] = useState({});
+  const { email, password } = formData;
+
+  useEffect(() => {
+    if (errors) {
+      setErrorsData(errors);
+    }
+  }, [errors]);
 
   const handleChange = event => {
     const { name, value } = event.target;
-    setUser(prevState => ({ ...prevState, [name]: value }));
-    console.log(user);
+    setFormData(prevState => ({ ...prevState, [name]: value }));
+    console.log(formData);
   };
 
-  const handleSubmit = async event => {
+  const handleSubmit = event => {
     event.preventDefault();
-    try {
-      setLoading(true);
-      const payload = { ...user };
-      const res = await axios.post("/login", payload);
-      console.log(res.data);
-      localStorage.setItem("FBIdToken", `Bearer ${res.data.token}`);
-      history.push("/");
-    } catch (err) {
-      console.log(err.response.data);
-      setErrors(err.response.data);
-    } finally {
-      setLoading(false);
-    }
+    loginUser(formData, history);
   };
 
   return (
@@ -64,9 +60,9 @@ const Login = ({ classes, history }) => {
             type='email'
             label='Email'
             className={classes.textField}
-            helperText={errors.email}
-            error={errors.email ? true : false}
-            value={user.email}
+            helperText={errorsData.email}
+            error={errorsData.email ? true : false}
+            value={email}
             onChange={handleChange}
             fullWidth
           ></TextField>
@@ -76,13 +72,13 @@ const Login = ({ classes, history }) => {
             type='password'
             label='Password'
             className={classes.textField}
-            helperText={errors.password}
-            error={errors.password ? true : false}
-            value={user.password}
+            helperText={errorsData.password}
+            error={errorsData.password ? true : false}
+            value={password}
             onChange={handleChange}
             fullWidth
           ></TextField>
-          {errors.general && (
+          {errorsData.general && (
             <Typography variant='body2' className={classes.customError}>
               {errors.general}
             </Typography>
@@ -109,7 +105,19 @@ const Login = ({ classes, history }) => {
 };
 
 Login.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  loginUser: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
+  UI: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Login);
+const mapStateToProps = state => ({
+  user: state.user,
+  UI: state.UI
+});
+
+const mapActionsToProps = {
+  loginUser
+};
+
+export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(Login));
