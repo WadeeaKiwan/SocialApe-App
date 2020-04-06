@@ -1,4 +1,11 @@
-import { SET_USER, SET_ERRORS, CLEAR_ERRORS, LOADING_UI, SET_UNAUTHENTICATED } from "../types";
+import {
+  SET_USER,
+  SET_ERRORS,
+  CLEAR_ERRORS,
+  LOADING_UI,
+  SET_UNAUTHENTICATED,
+  LOADING_USER
+} from "../types";
 import axios from "axios";
 
 export const loginUser = (formData, history) => async dispatch => {
@@ -51,6 +58,8 @@ export const logoutUser = () => dispatch => {
 
 export const getUser = () => async dispatch => {
   try {
+    dispatch({ type: LOADING_USER });
+
     const res = await axios.get("/user");
 
     dispatch({
