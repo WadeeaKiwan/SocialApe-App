@@ -4,11 +4,11 @@ import {
   CLEAR_ERRORS,
   LOADING_UI,
   SET_UNAUTHENTICATED,
-  LOADING_USER
+  LOADING_USER,
 } from "../types";
 import axios from "axios";
 
-export const loginUser = (formData, history) => async dispatch => {
+export const loginUser = (formData, history) => async (dispatch) => {
   try {
     dispatch({ type: LOADING_UI });
 
@@ -24,12 +24,12 @@ export const loginUser = (formData, history) => async dispatch => {
     console.error(err);
     dispatch({
       type: SET_ERRORS,
-      payload: err.response.data
+      payload: err.response.data,
     });
   }
 };
 
-export const signupUser = (formData, history) => async dispatch => {
+export const signupUser = (formData, history) => async (dispatch) => {
   try {
     dispatch({ type: LOADING_UI });
 
@@ -45,18 +45,18 @@ export const signupUser = (formData, history) => async dispatch => {
     console.error(err);
     dispatch({
       type: SET_ERRORS,
-      payload: err.response.data
+      payload: err.response.data,
     });
   }
 };
 
-export const logoutUser = () => dispatch => {
+export const logoutUser = () => (dispatch) => {
   localStorage.removeItem("FBIdToken");
   delete axios.defaults.headers.common["Authorization"];
   dispatch({ type: SET_UNAUTHENTICATED });
 };
 
-export const getUser = () => async dispatch => {
+export const getUser = () => async (dispatch) => {
   try {
     dispatch({ type: LOADING_USER });
 
@@ -64,14 +64,14 @@ export const getUser = () => async dispatch => {
 
     dispatch({
       type: SET_USER,
-      payload: res.data
+      payload: res.data,
     });
   } catch (err) {
     console.error(err);
   }
 };
 
-export const uploadImage = formData => async dispatch => {
+export const uploadImage = (formData) => async (dispatch) => {
   try {
     dispatch({ type: LOADING_USER });
 
@@ -83,7 +83,19 @@ export const uploadImage = formData => async dispatch => {
   }
 };
 
-const setAuthorizationHeader = token => {
+export const editUserDetails = (userDetails) => async (dispatch) => {
+  try {
+    dispatch({ type: LOADING_USER });
+
+    await axios.post("/user", userDetails);
+
+    dispatch(getUser());
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+const setAuthorizationHeader = (token) => {
   const FBIdToken = `Bearer ${token}`;
   localStorage.setItem("FBIdToken", FBIdToken);
   axios.defaults.headers.common["Authorization"] = FBIdToken;
