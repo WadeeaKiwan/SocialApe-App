@@ -6,6 +6,7 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 
 import MyButton from "../util/MyButton";
+import DeleteScream from "./DeleteScream";
 
 // MUI Stuff
 import Card from "@material-ui/core/Card";
@@ -22,6 +23,7 @@ import { likeScream, unlikeScream } from "../redux/actions/dataActions";
 
 const styles = {
   card: {
+    position: "relative",
     display: "flex",
     marginBottom: 20
   },
@@ -37,7 +39,11 @@ const styles = {
 const Scream = ({
   classes,
   scream: { body, userHandle, createdAt, screamId, likeCount, commentCount, userImage },
-  user: { likes, authenticated },
+  user: {
+    likes,
+    authenticated,
+    credentials: { handle }
+  },
   likeScream,
   unlikeScream
 }) => {
@@ -58,6 +64,7 @@ const Scream = ({
           <Typography variant='h5' component={Link} to={`/users/${userHandle}`} color='primary'>
             {userHandle}
           </Typography>
+          {authenticated && userHandle === handle ? <DeleteScream screamId={screamId} /> : null}
           <Typography variant='body2' color='textSecondary' component='p'>
             {dayjs(createdAt).fromNow()}
           </Typography>
