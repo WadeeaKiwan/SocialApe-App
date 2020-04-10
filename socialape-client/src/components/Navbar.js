@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
+import PostScream from "./PostScream";
 import MyButton from "../util/MyButton";
 
 // Redux
@@ -14,7 +15,6 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 
 // Icons
-import AddIcon from "@material-ui/icons/Add";
 import HomeIcon from "@material-ui/icons/Home";
 import Notifications from "@material-ui/icons/Notifications";
 
@@ -24,9 +24,7 @@ const Navbar = ({ authenticated, logoutUser }) => {
       <Toolbar className='nav-container'>
         {authenticated ? (
           <Fragment>
-            <MyButton tip='Post a scream!'>
-              <AddIcon />
-            </MyButton>
+            <PostScream />
             <Link to='/'>
               <MyButton tip='Home'>
                 <HomeIcon />
