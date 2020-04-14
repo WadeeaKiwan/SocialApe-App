@@ -5,6 +5,7 @@ import dayjs from "dayjs";
 import { Link } from "react-router-dom";
 
 import MyButton from "../util/MyButton";
+import LikeButton from "./LikeButton";
 
 // Redux
 import { connect } from "react-redux";
@@ -20,6 +21,7 @@ import Typography from "@material-ui/core/Typography";
 // Icons
 import CloseIcon from "@material-ui/icons/Close";
 import UnfoldMore from "@material-ui/icons/UnfoldMore";
+import ChatIcon from "@material-ui/icons/Chat";
 
 const styles = (theme) => ({
   ...theme.styles,
@@ -103,7 +105,13 @@ export const ScreamDialog = ({
                   {dayjs(createdAt).format("h:mm a, MMMM DD YYYY")}
                 </Typography>
                 <hr className={classes.invisibleSeparator} />
-                <Typography variant='body1'>{body}</Typography>
+                <Typography>{body}</Typography>
+                <LikeButton screamId={screamId} />
+                <span>{likeCount} likes</span>
+                <MyButton tip='Comments'>
+                  <ChatIcon color='primary' />
+                </MyButton>
+                <span>{commentCount} comments</span>
               </Grid>
             </Grid>
           )}
