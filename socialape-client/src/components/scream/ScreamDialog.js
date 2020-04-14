@@ -7,10 +7,11 @@ import { Link } from "react-router-dom";
 import MyButton from "../../util/MyButton";
 import LikeButton from "./LikeButton";
 import Comments from "./Comments";
+import CommentForm from "./CommentForm";
 
 // Redux
 import { connect } from "react-redux";
-import { getScream } from "../../redux/actions/dataActions";
+import { getScream, clearErrors } from "../../redux/actions/dataActions";
 
 // MUI Stuff
 import Dialog from "@material-ui/core/Dialog";
@@ -56,7 +57,8 @@ export const ScreamDialog = ({
   screamId,
   userHandle,
   UI: { loading },
-  getScream
+  getScream,
+  clearErrors
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -67,6 +69,7 @@ export const ScreamDialog = ({
 
   const handleClose = () => {
     setOpen(false);
+    clearErrors();
   };
 
   return (
@@ -110,8 +113,8 @@ export const ScreamDialog = ({
                 </MyButton>
                 <span>{commentCount} comments</span>
               </Grid>
-              {/* TODO: comment input */}
               <hr className={classes.visibleSeparator} />
+              <CommentForm screamId={screamId} />
               <Comments comments={comments} />
             </Grid>
           )}
@@ -126,7 +129,8 @@ ScreamDialog.propTypes = {
   screamId: PropTypes.string.isRequired,
   userHandle: PropTypes.string.isRequired,
   scream: PropTypes.object.isRequired,
-  getScream: PropTypes.func.isRequired
+  getScream: PropTypes.func.isRequired,
+  clearErrors: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
@@ -135,7 +139,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapActionsToProps = {
-  getScream
+  getScream,
+  clearErrors
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(ScreamDialog));
