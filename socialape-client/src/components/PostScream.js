@@ -6,7 +6,7 @@ import MyButton from "../util/MyButton";
 
 // Redux
 import { connect } from "react-redux";
-import { postScream } from "../redux/actions/dataActions";
+import { postScream, clearErrors } from "../redux/actions/dataActions";
 
 // MUI Stuff
 import Button from "@material-ui/core/Button";
@@ -24,6 +24,7 @@ const styles = (theme) => ({
   ...theme.styles,
   submitButton: {
     position: "relative",
+    float: "right",
     marginTop: 10
   },
   progressSpinner: {
@@ -32,11 +33,11 @@ const styles = (theme) => ({
   closeButton: {
     position: "absolute",
     left: "90%",
-    top: "10%"
+    top: "5%"
   }
 });
 
-const PostScream = ({ classes, UI: { loading, errors }, postScream }) => {
+const PostScream = ({ classes, UI: { loading, errors }, postScream, clearErrors }) => {
   const [body, setBody] = useState("");
   const [open, setOpen] = useState(false);
   const [errorsData, setErrorsData] = useState({});
@@ -47,7 +48,8 @@ const PostScream = ({ classes, UI: { loading, errors }, postScream }) => {
     }
     if (!errors && !loading) {
       setBody("");
-      handleClose();
+      setErrorsData({});
+      setOpen(false);
     }
   }, [errors, loading]);
 
@@ -56,6 +58,7 @@ const PostScream = ({ classes, UI: { loading, errors }, postScream }) => {
   };
 
   const handleClose = () => {
+    clearErrors();
     setOpen(false);
     setErrorsData({});
   };
@@ -114,7 +117,8 @@ const PostScream = ({ classes, UI: { loading, errors }, postScream }) => {
 
 PostScream.propTypes = {
   UI: PropTypes.object.isRequired,
-  postScream: PropTypes.func.isRequired
+  postScream: PropTypes.func.isRequired,
+  clearErrors: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
@@ -122,7 +126,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapActionsToProps = {
-  postScream
+  postScream,
+  clearErrors
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(PostScream));
