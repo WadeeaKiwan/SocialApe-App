@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-import MyButton from "../util/MyButton";
+import MyButton from "../../util/MyButton";
 
 // MUI Stuff
 import FavoriteIcon from "@material-ui/icons/Favorite";
@@ -10,7 +10,7 @@ import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 
 // Redux
 import { connect } from "react-redux";
-import { likeScream, unlikeScream } from "../redux/actions/dataActions";
+import { likeScream, unlikeScream } from "../../redux/actions/dataActions";
 
 const LikeButton = ({ user: { authenticated, likes }, screamId, likeScream, unlikeScream }) => {
   const likedScream = () => {

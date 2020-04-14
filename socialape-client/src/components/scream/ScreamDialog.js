@@ -4,12 +4,13 @@ import { withStyles } from "@material-ui/core/styles";
 import dayjs from "dayjs";
 import { Link } from "react-router-dom";
 
-import MyButton from "../util/MyButton";
+import MyButton from "../../util/MyButton";
 import LikeButton from "./LikeButton";
+import Comments from "./Comments";
 
 // Redux
 import { connect } from "react-redux";
-import { getScream } from "../redux/actions/dataActions";
+import { getScream } from "../../redux/actions/dataActions";
 
 // MUI Stuff
 import Dialog from "@material-ui/core/Dialog";
@@ -25,10 +26,6 @@ import ChatIcon from "@material-ui/icons/Chat";
 
 const styles = (theme) => ({
   ...theme.styles,
-  invisibleSeparator: {
-    border: "none",
-    margin: 4
-  },
   profileImage: {
     maxWidth: 200,
     height: 200,
@@ -55,7 +52,7 @@ const styles = (theme) => ({
 
 export const ScreamDialog = ({
   classes,
-  scream: { body, createdAt, likeCount, commentCount, userImage },
+  scream: { body, createdAt, likeCount, commentCount, userImage, comments },
   screamId,
   userHandle,
   UI: { loading },
@@ -87,7 +84,7 @@ export const ScreamDialog = ({
               <CircularProgress size={200} thickness={2} />
             </div>
           ) : (
-            <Grid container spacing={10}>
+            <Grid container spacing={16}>
               <Grid item sm={5}>
                 <img src={userImage} alt='Profile' className={classes.profileImage} />
               </Grid>
@@ -113,6 +110,9 @@ export const ScreamDialog = ({
                 </MyButton>
                 <span>{commentCount} comments</span>
               </Grid>
+              {/* TODO: comment input */}
+              <hr className={classes.visibleSeparator} />
+              <Comments comments={comments} />
             </Grid>
           )}
         </DialogContent>
