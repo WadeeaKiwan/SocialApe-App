@@ -150,3 +150,24 @@ export const submitComment = (screamId, commentData) => async (dispatch) => {
     });
   }
 };
+
+// Get the scream's of a user
+export const getUserScreams = (userHandle) => async (dispatch) => {
+  try {
+    dispatch({ type: LOADING_DATA });
+
+    const res = await axios.get(`/user/${userHandle}`);
+
+    dispatch({
+      type: SET_SCREAMS,
+      payload: res.data.screams
+    });
+  } catch (err) {
+    console.error(err);
+
+    dispatch({
+      type: SET_SCREAMS,
+      payload: null
+    });
+  }
+};
