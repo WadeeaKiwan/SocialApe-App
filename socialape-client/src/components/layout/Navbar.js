@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 import PostScream from "../scream/PostScream";
 import MyButton from "../../util/MyButton";
+import Notifications from "./Notifications";
 
 // Redux
 import { connect } from "react-redux";
-import { logoutUser } from "../../redux/actions/userActions";
 
 // MUI Stuff
 import AppBar from "@material-ui/core/AppBar";
@@ -16,9 +16,8 @@ import Button from "@material-ui/core/Button";
 
 // Icons
 import HomeIcon from "@material-ui/icons/Home";
-import Notifications from "@material-ui/icons/Notifications";
 
-const Navbar = ({ authenticated, logoutUser }) => {
+const Navbar = ({ authenticated }) => {
   return (
     <AppBar>
       <Toolbar className='nav-container'>
@@ -30,9 +29,7 @@ const Navbar = ({ authenticated, logoutUser }) => {
                 <HomeIcon />
               </MyButton>
             </Link>
-            <MyButton tip='Notifications'>
-              <Notifications />
-            </MyButton>
+            <Notifications />
           </Fragment>
         ) : (
           <Fragment>
@@ -53,16 +50,11 @@ const Navbar = ({ authenticated, logoutUser }) => {
 };
 
 Navbar.propTypes = {
-  authenticated: PropTypes.bool.isRequired,
-  logoutUser: PropTypes.func.isRequired
+  authenticated: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = (state) => ({
   authenticated: state.user.authenticated
 });
 
-const mapActionsToProps = {
-  logoutUser
-};
-
-export default connect(mapStateToProps, mapActionsToProps)(Navbar);
+export default connect(mapStateToProps)(Navbar);

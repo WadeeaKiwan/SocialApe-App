@@ -12,11 +12,19 @@ import { getUserScreams } from "../redux/actions/dataActions";
 // MUI Stuff
 import Grid from "@material-ui/core/Grid";
 
-const User = ({ data: { screams, loading }, match, getUserScreams }) => {
+const User = ({
+  data: { screams, loading },
+  match: {
+    params: { handle, screamId }
+  },
+  getUserScreams
+}) => {
   const [profile, setProfile] = useState(null);
-  const { handle } = match.params;
+  const [screamIdParam, setScreamIdParam] = useState(null);
 
   useEffect(() => {
+    if (screamId) setScreamIdParam(screamId);
+
     getUserScreams(handle);
 
     const getUserDetails = async () => {
@@ -30,19 +38,27 @@ const User = ({ data: { screams, loading }, match, getUserScreams }) => {
     };
 
     getUserDetails();
-  }, [getUserScreams, handle]);
+  }, [getUserScreams, handle, screamId]);
 
   return (
     <Grid container spacing={10}>
       <Grid item sm={8} xs={12}>
-        {!loading ? (
-          screams ? (
+        {loading ? (
+          <p>Loading data...</p>
+        ) : screams ? (
+          !screamIdParam ? (
             screams.map((scream) => <Scream key={scream.screamId} scream={scream} />)
           ) : (
-            <p>No screams from this user</p>
+            screams.map((scream) => {
+              if (scream.screamId !== screamIdParam) {
+                return <Scream key={scream.screamId} scream={scream} />;
+              } else {
+                return <Scream key={scream.screamId} scream={scream} openDialog />;
+              }
+            })
           )
         ) : (
-          <p>Loading data...</p>
+          <p>No screams from this user</p>
         )}
       </Grid>
       <Grid item sm={4} xs={12}>

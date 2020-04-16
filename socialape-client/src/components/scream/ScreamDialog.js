@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import dayjs from "dayjs";
@@ -58,16 +58,32 @@ export const ScreamDialog = ({
   userHandle,
   UI: { loading },
   getScream,
-  clearErrors
+  clearErrors,
+  openDialog
 }) => {
   const [open, setOpen] = useState(false);
+  const [oldPath, setOldPath] = useState("");
+
+  useEffect(() => {
+    if (openDialog) {
+      handleOpen();
+    }
+  }, []);
 
   const handleOpen = () => {
-    setOpen(true);
+    setOldPath(window.location.pathname);
+    const newPath = `/users/${userHandle}/scream/${screamId}`;
+    window.history.pushState(null, null, newPath);
+
+    if (oldPath === newPath) setOldPath(`/users/${userHandle}`);
+
     getScream(screamId);
+    setOpen(true);
   };
 
   const handleClose = () => {
+    window.history.pushState(null, null, oldPath);
+
     setOpen(false);
     clearErrors();
   };
@@ -130,7 +146,8 @@ ScreamDialog.propTypes = {
   userHandle: PropTypes.string.isRequired,
   scream: PropTypes.object.isRequired,
   getScream: PropTypes.func.isRequired,
-  clearErrors: PropTypes.func.isRequired
+  clearErrors: PropTypes.func.isRequired,
+  openDialog: PropTypes.bool
 };
 
 const mapStateToProps = (state) => ({

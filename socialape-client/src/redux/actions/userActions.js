@@ -5,6 +5,7 @@ import {
   LOADING_UI,
   SET_UNAUTHENTICATED,
   LOADING_USER,
+  MARK_NOTIFICATIONS_READ
 } from "../types";
 import axios from "axios";
 
@@ -24,7 +25,7 @@ export const loginUser = (formData, history) => async (dispatch) => {
     console.error(err);
     dispatch({
       type: SET_ERRORS,
-      payload: err.response.data,
+      payload: err.response.data
     });
   }
 };
@@ -45,7 +46,7 @@ export const signupUser = (formData, history) => async (dispatch) => {
     console.error(err);
     dispatch({
       type: SET_ERRORS,
-      payload: err.response.data,
+      payload: err.response.data
     });
   }
 };
@@ -64,7 +65,7 @@ export const getUser = () => async (dispatch) => {
 
     dispatch({
       type: SET_USER,
-      payload: res.data,
+      payload: res.data
     });
   } catch (err) {
     console.error(err);
@@ -90,6 +91,18 @@ export const editUserDetails = (userDetails) => async (dispatch) => {
     await axios.post("/user", userDetails);
 
     dispatch(getUser());
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export const markNotificationsRead = (notificationIds) => async (dispatch) => {
+  try {
+    await axios.post("/notifications", notificationIds);
+
+    dispatch({
+      type: MARK_NOTIFICATIONS_READ
+    });
   } catch (err) {
     console.error(err);
   }
