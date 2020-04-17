@@ -6,6 +6,7 @@ import dayjs from "dayjs";
 
 import EditDetails from "./EditDetails";
 import MyButton from "../../util/MyButton";
+import ProfileSkeleton from "../../util/ProfileSkeleton";
 
 // MUI Stuff
 import Button from "@material-ui/core/Button";
@@ -114,7 +115,7 @@ const Profile = ({
       </Paper>
     )
   ) : (
-    <p>Loading...</p>
+    <ProfileSkeleton />
   );
 };
 

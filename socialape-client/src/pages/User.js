@@ -4,6 +4,8 @@ import axios from "axios";
 
 import Scream from "../components/scream/Scream";
 import StaticProfile from "../components/profile/StaticProfile";
+import ScreamSkeleton from "../util/ScreamSkeleton";
+import ProfileSkeleton from "../util/ProfileSkeleton";
 
 // Redux
 import { connect } from "react-redux";
@@ -44,7 +46,7 @@ const User = ({
     <Grid container spacing={10}>
       <Grid item sm={8} xs={12}>
         {loading ? (
-          <p>Loading data...</p>
+          <ScreamSkeleton />
         ) : screams ? (
           !screamIdParam ? (
             screams.map((scream) => <Scream key={scream.screamId} scream={scream} />)
@@ -62,7 +64,7 @@ const User = ({
         )}
       </Grid>
       <Grid item sm={4} xs={12}>
-        {profile ? <StaticProfile profile={profile} /> : <p>Loading profile...</p>}
+        {profile ? <StaticProfile profile={profile} /> : <ProfileSkeleton />}
       </Grid>
     </Grid>
   );
