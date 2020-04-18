@@ -20,8 +20,12 @@ const Home = ({ data: { screams, loading }, getScreams }) => {
   return (
     <Grid container spacing={10}>
       <Grid item sm={8} xs={12}>
-        {!loading && screams ? (
-          screams.map((scream) => <Scream key={scream.screamId} scream={scream} />)
+        {!loading ? (
+          screams.length === 0 ? (
+            <p>No screams found</p>
+          ) : (
+            screams.map((scream) => <Scream key={scream.screamId} scream={scream} />)
+          )
         ) : (
           <ScreamSkeleton />
         )}

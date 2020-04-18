@@ -15,7 +15,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import { connect } from "react-redux";
 import { loginUser } from "../redux/actions/userActions";
 
-const styles = theme => ({
+const styles = (theme) => ({
   ...theme.styles
 });
 
@@ -34,13 +34,12 @@ const Login = ({ classes, history, UI: { loading, errors }, loginUser }) => {
     }
   }, [errors]);
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     const { name, value } = event.target;
-    setFormData(prevState => ({ ...prevState, [name]: value }));
-    console.log(formData);
+    setFormData((prevState) => ({ ...prevState, [name]: value }));
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     loginUser(formData, history);
   };
@@ -111,7 +110,7 @@ Login.propTypes = {
   UI: PropTypes.object.isRequired
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   user: state.user,
   UI: state.UI
 });

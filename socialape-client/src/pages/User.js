@@ -47,20 +47,18 @@ const User = ({
       <Grid item sm={8} xs={12}>
         {loading ? (
           <ScreamSkeleton />
-        ) : screams ? (
-          !screamIdParam ? (
-            screams.map((scream) => <Scream key={scream.screamId} scream={scream} />)
-          ) : (
-            screams.map((scream) => {
-              if (scream.screamId !== screamIdParam) {
-                return <Scream key={scream.screamId} scream={scream} />;
-              } else {
-                return <Scream key={scream.screamId} scream={scream} openDialog />;
-              }
-            })
-          )
-        ) : (
+        ) : screams.length === 0 ? (
           <p>No screams from this user</p>
+        ) : !screamIdParam ? (
+          screams.map((scream) => <Scream key={scream.screamId} scream={scream} />)
+        ) : (
+          screams.map((scream) => {
+            if (scream.screamId !== screamIdParam) {
+              return <Scream key={scream.screamId} scream={scream} />;
+            } else {
+              return <Scream key={scream.screamId} scream={scream} openDialog />;
+            }
+          })
         )}
       </Grid>
       <Grid item sm={4} xs={12}>
