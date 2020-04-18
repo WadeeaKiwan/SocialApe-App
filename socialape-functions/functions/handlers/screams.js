@@ -4,12 +4,9 @@ const { db } = require("../util/admin");
 exports.getAllScreams = async (req, res) => {
   try {
     const screams = [];
-    const allScreams = await db
-      .collection("screams")
-      .orderBy("createdAt", "desc")
-      .get();
+    const allScreams = await db.collection("screams").orderBy("createdAt", "desc").get();
 
-    allScreams.forEach(scream => {
+    allScreams.forEach((scream) => {
       screams.push({
         screamId: scream.id,
         body: scream.data().body,
@@ -78,7 +75,7 @@ exports.getScream = async (req, res) => {
       .get();
 
     screamData.comments = [];
-    comments.forEach(comment => {
+    comments.forEach((comment) => {
       screamData.comments.push(comment.data());
     });
 
@@ -188,6 +185,7 @@ exports.unlikeScream = async (req, res) => {
     await db.doc(`/likes/${liked.docs[0].id}`).delete();
 
     screamData = scream.data();
+    screamData.screamId = scream.id;
     screamData.likeCount--;
     await scream.ref.update({ likeCount: screamData.likeCount });
 
