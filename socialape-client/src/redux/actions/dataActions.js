@@ -140,6 +140,8 @@ export const submitComment = (screamId, commentData) => async (dispatch) => {
       payload: res.data
     });
 
+    dispatch(getScream(screamId));
+
     dispatch(clearErrors());
   } catch (err) {
     console.error(err);
