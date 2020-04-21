@@ -1,0 +1,26 @@
+{
+  "name": "socialape-app",
+  "version": "1.0.0",
+  "description": "SocialApe Application",
+  "main": "./socialape-functions/functions/index.js",
+  "scripts": {
+    "server": "firebase serve --prefix socialape-functions",
+    "client": "npm start --prefix socialape-client",
+    "build": "npm run build --prefix socialape-client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dependencies": "npm i && npm i --prefix socialape-functions/functions && npm i --prefix socialape-client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WadeeaKiwan/SocialApe-App.git"
+  },
+  "author": "Wadeea Kiwan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WadeeaKiwan/SocialApe-App/issues"
+  },
+  "homepage": "https://github.com/WadeeaKiwan/SocialApe-App#readme",
+  "devDependencies": {
+    "concurrently": "^5.1.0"
+  }
+}
