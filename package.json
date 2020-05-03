@@ -4,7 +4,7 @@
   "description": "SocialApe Application",
   "main": "./socialape-functions/functions/index.js",
   "scripts": {
-    "server": "firebase serve --prefix socialape-functions",
+    "server": "cd socialape-functions && firebase serve",
     "client": "npm start --prefix socialape-client",
     "build": "npm run build --prefix socialape-client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
