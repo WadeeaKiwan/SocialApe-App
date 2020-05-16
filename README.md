@@ -3,6 +3,8 @@
 Social media application built using:
 `React` a framework to build component-based web applications and `Redux` as a state management. In addition to `Firebase` which a great Platform as a Service (PaaS). It's used here as a backend. Besides other services as `Cloud Firestore` as a realtime document-based (noSQL) database, `Cloud Functions`which are built in `Node.js`with the help of `Express`. `Authentication` that uses `Json Web Token`. `Material UI` to design the app which is based om React Components that implement Google's Material Design.
 
+![SocialApe](./assets/SocialApe.jpg)
+
 # To Start:
 
 ## Install the required packages by the following command:

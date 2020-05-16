@@ -1,4 +1,5 @@
-import { createStore, combineReducers, applyMiddleware, compose } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import userReducer from "./reducers/userReducer";
 import dataReducer from "./reducers/dataReducer";
@@ -14,14 +15,10 @@ const reducers = combineReducers({
   UI: uiReducer
 });
 
-// Checking if redux devtools ext is installed before starting it
-const composeEnhancers =
-  typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
-    : compose;
-
-const enhancer = composeEnhancers(applyMiddleware(...middleware));
-
-const store = createStore(reducers, initialState, enhancer);
+const store = createStore(
+  reducers,
+  initialState,
+  composeWithDevTools(applyMiddleware(...middleware))
+);
 
 export default store;
