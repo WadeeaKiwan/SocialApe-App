@@ -67,4 +67,4 @@ npm run dev
 
 ## Please, visit the following link to try the app:
 
-https://socialape-ad195.firebaseapp.com/
+https://socialape-ad195.web.app or https://socialape-ad195.firebaseapp.com/
